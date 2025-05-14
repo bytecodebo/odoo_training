@@ -11,15 +11,13 @@ Los capítulos deben seguirse en el orden indicado, ya que abarcan el desarrollo
 Cubriremos todos los conceptos básicos que necesitas para poder crear aplicaciones
 óptimas, escalables y reutilizables en Odoo.
 
-Antes de empezar con la configuración del entorno de desarrollo, asegúrate de tener instalado los siguientes requisitos previos: Python 3, Git, PostgreSQL y VSCode. Si aún no los tienes, puedes seguir los siguientes enlaces para instalarlos:
+Antes de empezar con la configuración del entorno de desarrollo, asegúrate de tener instalado los siguientes requisitos previos: Python 3, Git, PostgreSQL, Pycharm y Valentina Studio DB. Si aún no los tienes, puedes seguir los siguientes enlaces para instalarlos:
 
-Python 3: python.org/downloads
-
-Git: git-scm.com/downloads
-
-PostgreSQL: postgresql.org/download
-
-VSCode: code.visualstudio.com/download
+- Python 3: https://www.python.org/downloads/
+- Git: https://git-scm.com/downloads
+- PostgreSQL: https://www.postgresql.org/download/
+- Pycharm: https://www.jetbrains.com/pycharm/download/
+- ValentinaDb: https://www.valentina-db.com/en/all-downloads/vstudio/current
 
 A continuación se listan guías de acceso a materiales adecuados para reforzamiento de las habilidades 
 aprendidas para el desarrollo de módulos.
