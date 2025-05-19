@@ -1,6 +1,6 @@
 # Tutorial de Desarrollo de Odoo 16.0
 
-## Clase 01
+## Clase 01-02
 
 ## Preparación de ambiente de desarrollo
 
