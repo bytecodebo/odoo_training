@@ -21,7 +21,7 @@ __file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
 __base="$(basename ${__file} .sh)"
 __source="$(pwd)"
 __file_env="${__source}/.env"
-__file_functions="${__dir}/odoo-mods.sh"
+__file_functions="${__dir}/odt-mods.sh"
 
 echo """Scripts for up instances"""
 echo """***************** ****** **************"""
@@ -223,24 +223,21 @@ if [ "$VAR_TRANSLATE" = "1" ]; then
   override_trans=" --i18n-overwrite"
 fi
 if [ "$VAR_REMOTE" = "1" ]; then
-   # remote_debug="--remote-debugging-port=9222 --user-data-dir=remote-debug-profile"
-   #remote_debug="--remote-debugging-port=9222 --user-data-dir=remote-debug-profile /Users/robertsvx/Documents/OdooRepo/env3812/bin/python"
-  # remote_debug="--port=9222 --client 127.0.0.1 /Users/robertsvx/Documents/OdooRepo/env3812/bin/python"
-  remote_debug=" /Users/robertsvx27/.pyenv/versions/3.11.8/envs/envO17/bin/python -m ptvsd --host localhost --port 5678 --wait"
+  remote_debug=" ../python -m ptvsd --host localhost --port 5678 --wait"
 fi
 
 local_debug=" ${CONTEXT_PYTHON_ENV:-}"
 if [ "$local_debug" = ""]; then
   if [ "${CONTEXT_ODOO_VERSION}" = "16" ]; then
-    local_debug="/Users/robertsvx27/.pyenv/versions/3.10.7/envs/envCop310/bin/python3"
+    local_debug="../.pyenv/versions/3.10.7/envs/envCop310/bin/python3"
   elif [ "${CONTEXT_ODOO_VERSION}" = "15" ]; then
-    local_debug=" /Users/robertsvx27/.pyenv/versions/3.9.7/envs/env3915/bin/python3"
+    local_debug=" ../.pyenv/versions/3.9.7/envs/env3915/bin/python3"
   elif [ "${CONTEXT_ODOO_VERSION}" = "14" ]; then
-    local_debug="/Users/robertsvx27/.pyenv/versions/odoo38-14/bin/python3"
+    local_debug=" ../.pyenv/versions/odoo38-14/bin/python3"
   fi
 fi
 if [ "$VAR_DEBUG" = "1" ]; then
-  local_debug=" /Users/robertsvx27/.pyenv/versions/3.11.8/envs/envO17/bin/python /Applications/PyCharm\ CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py --multiprocess"
+  local_debug=" ../.pyenv/versions/3.11.8/envs/envO17/bin/python /Applications/PyCharm\ CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py --multiprocess"
   local_debug="""${local_debug}  --qt-support=auto --client 127.0.0.1 --port 51693 --file """
 fi
 
