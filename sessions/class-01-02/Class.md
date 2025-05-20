@@ -1,12 +1,14 @@
 # Tutorial de Desarrollo de Odoo 16.0
 
-## Clase 01-02
+#### Clase 01-02
 
-### Agenda
+### Configuración de IDE (plugins, linters, debuggers) y Objetivos generales
+
+#### Agenda
 
 #### Parte 01
 
-- Introduccion y Presentacion
+- Instalación y Presentación
 - Objetivo General
 - Objetivos Especificos
 - Resumen breve de Odoo
