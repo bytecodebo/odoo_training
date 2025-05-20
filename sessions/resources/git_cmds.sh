@@ -54,3 +54,14 @@ git gc --aggressive --prune=all		# remove the old files
 
 
 # ^(?!.*(\\'license\\'|\\"license\\"))$
+
+# Remover submodulos
+git submodule deinit -f a/submodule
+git rm -r the_submodule
+rm -rf .git/modules/the_submodule
+
+git rm --cached $submodulepath
+
+# Eliminar archivos innecesarios:
+rm -rf $submodulepath
+rm -rf .git/modules/$submodulename

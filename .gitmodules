@@ -1,4 +1,0 @@
-[submodule "resources/byc_tools"]
-	path = resources/byc_tools
-	url = git@github.com:bytecodebo/byc_tools
-	branch = main

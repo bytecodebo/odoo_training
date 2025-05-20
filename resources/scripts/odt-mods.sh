@@ -1,6 +1,6 @@
 #!/bin/bash
-# Este archivo debe  ser copiado en el mismo directorio que odoo-run.sh
-# otorgar permisos de ejecucion chmod +x
+# Este archivo debe  ser copiado en el mismo directorio que odt-run.sh
+# otorgar permisos de ejecucion chmod +x odt-run.sh
 
 echo """Scripts for up instances"""
 echo """***************** ****** **************"""

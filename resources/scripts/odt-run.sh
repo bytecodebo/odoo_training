@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # El directorio donde se copie este archivo debe estar configurado como directorio global
 # para que se pueda llamar desde cualquier parte
-# otorgar permisos de ejecucion chmod +x
+# Otorgar permisos de ejecucion chmod +x
 
 set -e
 
@@ -20,6 +20,7 @@ __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 __file="${__dir}/$(basename "${BASH_SOURCE[0]}")"
 __base="$(basename ${__file} .sh)"
 __source="$(pwd)"
+# Carga archivo de variables del directorio de donde se esta leyendo este archivo (proyecto de odoo)
 __file_env="${__source}/.env"
 __file_functions="${__dir}/odt-mods.sh"
 
@@ -34,9 +35,9 @@ set -o allexport
 source "${__file_env}"
 source "${__file_functions}"
 
-VAR_INSTANCE="${CONTEXT_INSTANCE:-}" # nombre de instancia por defecto bantic odoo 15
+VAR_INSTANCE="${CONTEXT_INSTANCE:-}" # nombre de instancia por defecto
 VAR_MODULE="${CONTEXT_MODS:-}" # sin levantar modulos
-VAR_OPTION="${CONTEXT_OPTION:-u}" # por defecto update I instalar modulos
+VAR_OPTION="${CONTEXT_OPTION:-u}" # por defecto u = update,  i=instalar modulos, m=migrar modulos
 VAR_DB="${CONTEXT_DB:-}" # base de datos
 VAR_DEV="${CONTEXT_EXEC:-0}" # reload 1 ,2 xml 3 reload,xml
 VAR_SHELL="${CONTEXT_SHELL:-0}" # mode shell
@@ -226,6 +227,9 @@ if [ "$VAR_REMOTE" = "1" ]; then
   remote_debug=" ../python -m ptvsd --host localhost --port 5678 --wait"
 fi
 
+# Para manejar diferentes versiones de Python
+# Agregue los paths correspondientes segun version de odoo
+# utilizando entornos virtuales creados con pyenv y virtualenv como plugin
 local_debug=" ${CONTEXT_PYTHON_ENV:-}"
 if [ "$local_debug" = ""]; then
   if [ "${CONTEXT_ODOO_VERSION}" = "16" ]; then
