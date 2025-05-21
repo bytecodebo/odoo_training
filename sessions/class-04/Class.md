@@ -31,6 +31,13 @@ git merge hotfix_branch
 
 ````
 
+#### Funcionamiento
+
+![Gitflow inicio](./img/image_gf01.svg)
+
+
+![Gitflow features](./img/image_gf02.svg)
+
 **2.- Creación de repositorio mirror.**
 
 - Crea un clon desnudo del repositorio. Reemplaza el nombre de usuario 
