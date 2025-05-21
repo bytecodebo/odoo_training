@@ -46,6 +46,7 @@ VAR_REMOTE="0" # mode remote debugging
 VAR_DEBUG="0" # mode remote debugging
 VAR_ENVIRONMENT="${CONTEXT_ENV:-tst}" # 1= produccion , 2 testing
 VAR_TRANSLATE="${CONTEXT_TRANS:-0}" # override translation 1 ok
+VAR_PYTHON_CONTEXT="${CONTEXT_PYTHON_ENV:-}" # version de python a utilizar
 
 set +o allexport
 
@@ -82,6 +83,9 @@ while [ -n "$1" ]; do # while loop starts
       shift
       ;;
     -t) VAR_TRANSLATE="$2"
+      shift
+      ;;
+    -y) VAR_PYTHON_CONTEXT="$2"
       shift
       ;;
 	esac
@@ -231,6 +235,7 @@ fi
 # Agregue los paths correspondientes segun version de odoo
 # utilizando entornos virtuales creados con pyenv y virtualenv como plugin
 local_debug=" ${CONTEXT_PYTHON_ENV:-}"
+
 if [ "$local_debug" = ""]; then
   if [ "${CONTEXT_ODOO_VERSION}" = "16" ]; then
     local_debug="../.pyenv/versions/3.10.7/envs/envCop310/bin/python3"
@@ -239,6 +244,8 @@ if [ "$local_debug" = ""]; then
   elif [ "${CONTEXT_ODOO_VERSION}" = "14" ]; then
     local_debug=" ../.pyenv/versions/odoo38-14/bin/python3"
   fi
+else
+  local_debug=$(pyenv which python $VAR_PYTHON_CONTEXT)
 fi
 if [ "$VAR_DEBUG" = "1" ]; then
   local_debug=" ../.pyenv/versions/3.11.8/envs/envO17/bin/python /Applications/PyCharm\ CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py --multiprocess"
