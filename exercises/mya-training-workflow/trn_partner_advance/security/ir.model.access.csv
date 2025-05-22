@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acc_usr_siat_doc_type,acc_usr_siat_doc_type user,model_siat_document_type,base.group_user,1,0,0,0
+acc_erp_siat_doc_type,acc_erp_siat_doc_type manager,model_siat_document_type,base.group_erp_manager,1,1,1,1
+acc_usr_siat_uom,acc_usr_siat_uom user,model_siat_uom,base.group_user,1,0,0,0
+acc_erp_siat_uom,acc_erp_siat_uom manager,model_siat_uom,base.group_erp_manager,1,1,1,1

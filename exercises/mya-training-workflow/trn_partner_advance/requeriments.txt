@@ -1,0 +1,16 @@
+
+
+
+Modelo Tipo de Documento
+
+1.- Modelo Heredable  por todos los documentos
+2.- Vistas heredables por todos los tipos de documentos
+    Vista tree, form
+
+
+  Model.Abstract ->   SiatCatalogMixin
+
+  Tipo Documento
+
+  Tipo DocumentoSectorActividad
+
