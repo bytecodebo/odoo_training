@@ -1,5 +1,6 @@
 from odoo import api, fields, models
 
+SIAT_TD_CI= 1
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
@@ -12,7 +13,7 @@ class ResPartner(models.Model):
     def _compute_full_vat(self):
         for rec in self:
             full_vat = rec.vat
-            if rec.siat_doc_type_id and rec.siat_doc_type_id.code_classificator == 1 and rec.company_type == 'person' \
+            if rec.siat_doc_type_id and rec.siat_doc_type_id.code_classificator == SIAT_TD_CI and rec.company_type == 'person' \
                 and rec.siat_extension_di:
                 full_vat = "%s-%s" % (full_vat, rec.siat_extension_di)
             if full_vat != rec.full_vat:
