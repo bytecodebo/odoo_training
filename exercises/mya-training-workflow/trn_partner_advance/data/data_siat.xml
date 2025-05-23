@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="siat.document.type" id="siat_dti_ci">
+            <field name="description">CI - CEDULA DE IDENTIDAD</field>
+            <field name="code_classificator">1</field>
+            <field name="active">True</field>
+            <field name="enabled">True</field>
+        </record>
+        <record model="siat.document.type" id="siat_dti_nit">
+            <field name="description">NIT - NÚMERO DE IDENTIFICACIÓN TRIBUTARIA</field>
+            <field name="code_classificator">5</field>
+            <field name="active">True</field>
+            <field name="enabled">True</field>
+        </record>
+    </data>
+</odoo>

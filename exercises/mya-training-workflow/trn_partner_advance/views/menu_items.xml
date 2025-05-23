@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <menuitem
+        id="menu_siat_doc_type"
+        name="Document Type"
+        parent="contacts.res_partner_menu_config"
+        action="trn_partner_advance.action_view_siat_document_type"
+        sequence="20"/>
+
+</odoo>

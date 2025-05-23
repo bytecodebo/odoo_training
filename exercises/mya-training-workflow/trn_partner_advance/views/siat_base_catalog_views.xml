@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+      <record id="view_form_base_siat_catalog" model="ir.ui.view">
+          <field name="name">view.form.base.siat.catalog</field>
+          <field name="model">siat.catalog.mixin</field>
+          <field name="arch" type="xml">
+               <form string="SIAT Catalog">
+                <header>
+                    <button name="action_to_draft"
+                            class="oe_highlight"
+                            type="object"
+                            invisible="1"
+                            states="posted,cancel"
+                            string="Draft"/>
+
+                    <button name="action_to_post"
+                            class="oe_highlight"
+                            type="object"
+                            states="draft"
+                            invisible="1"
+                            string="Post"/>
+
+                    <button name="action_to_cancel"
+                            class="oe_highlight"
+                            type="object"
+                            states="draft"
+                            invisible="1"
+                            string="Cancel"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,posted"/>
+                 </header>
+                 <sheet>
+                 <div name="button_box" class="oe_button_box">
+                  </div>
+                      <div class="oe_title">
+                          <label for="description"/>
+                          <h1>
+                              <field name="description" placeholder="......"/>
+                          </h1>
+                      </div>
+                      <group name="grp_top">
+                          <group name="grp_top_left">
+                              <h3>
+                                <field name="code_classificator"/>
+                              </h3>
+                          </group>
+                          <group name="grp_top_right">
+                              <field name="active" invisible="1"/>
+                          </group>
+                      </group>
+
+                 </sheet>
+               </form>
+               </field>
+      </record>
+        
+        <record id="view_base_siat_catalog_tree" model="ir.ui.view">
+            <field name="name">view.base.siat.catalog.tree</field>
+            <field name="model">siat.catalog.mixin</field>
+            <field name="arch" type="xml">
+                <tree string="Catalog">
+                    <field name="code_classificator"/>
+                    <field name="description"/>
+                    <field name="state" widget="badge"
+                           decoration-success="state=='posted'"
+                           decoration-info="state=='draft' or not enabled"
+                           decoration-danger="state=='cancel'"/>
+                    <field name="enabled" widget="boolean_toggle"/>
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_base_siat_catalog_search" model="ir.ui.view">
+           <field name="name">view.base.siat.catalog.search</field>
+           <field name="model">siat.catalog.mixin</field>
+            <field name="arch" type="xml">
+                <search string="Siat Catalog Search">
+                <field name="description" string="Name"
+                       filter_domain="['|',('description', 'ilike', self), ('code_classificator','ilike', self)]"/>
+                    <filter
+                    name="active"
+                    string="Archived"
+                    domain="[('active', '=', False)]"
+                />
+                <field name="code_classificator"/>
+                    <group string="Group By" name="group_by">
+
+                    </group>
+            </search>
+           </field>
+        </record>
+    </data>
+</odoo>
