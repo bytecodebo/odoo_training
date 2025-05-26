@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_form_inherit_siat_currency" model="ir.ui.view">
+            <field name="name">view.form.inherit.siat.currency</field>
+            <field name="model">siat.currency</field>
+            <field name="inherit_id" ref="view_form_base_siat_catalog"/>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_to_draft']" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_to_post']" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_to_cancel']" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </xpath>
+                <xpath expr="//form" position="attributes">
+                    <attribute name="string">SIAT Currency</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+         <record id="view_siat_currency_inherit_tree" model="ir.ui.view">
+            <field name="name">view.siat.currency.inherit.tree</field>
+            <field name="model">siat.currency</field>
+            <field name="inherit_id" ref="trn_partner_advance.view_base_siat_catalog_tree"/>
+             <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="string">Currency</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_view_siat_currency" model="ir.actions.act_window">
+            <field name="name">Currencies</field>
+            <field name="res_model">siat.currency</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="trn_partner_advance.view_base_siat_catalog_search"/>
+            <field name="view_id" ref="trn_partner_advance.view_siat_currency_inherit_tree"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create new document
+                </p>
+                <p>
+
+                </p>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

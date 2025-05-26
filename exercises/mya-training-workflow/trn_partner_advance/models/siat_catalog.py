@@ -12,6 +12,7 @@ class SiatUoM(models.Model):
     _inherit = 'siat.catalog.mixin'
     _description = 'Siat UoM'
 
+
 class SiatActivity(models.Model):
     _name = 'siat.activity'
     _inherit = 'siat.catalog.mixin'
@@ -21,4 +22,26 @@ class SiatActivity(models.Model):
     activity_type = fields.Char()
 
 
+class SiatPaymentMethod(models.Model):
+    _name = 'siat.payment.method'
+    _inherit = 'siat.catalog.mixin'
+    _description = 'Siat Payments'
+
+
+class SiatCountry(models.Model):
+    _name = 'siat.country'
+    _inherit = 'siat.catalog.mixin'
+    _description = 'Siat Country'
+
+
+class SiatCurrency(models.Model):
+    _name = 'siat.currency'
+    _inherit = 'siat.catalog.mixin'
+    _description = 'Siat Currency'
+
+
+class SiatPosType(models.Model):
+    _name = 'siat.pos.type'
+    _inherit = 'siat.catalog.mixin'
+    _description = 'Siat POS Type'
 

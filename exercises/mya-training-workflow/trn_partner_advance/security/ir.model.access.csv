@@ -5,4 +5,12 @@ acc_usr_siat_uom,acc_usr_siat_uom user,model_siat_uom,base.group_user,1,0,0,0
 acc_erp_siat_uom,acc_erp_siat_uom manager,model_siat_uom,base.group_erp_manager,1,1,1,1
 acc_usr_siat_activity,acc_usr_siat_activity user,model_siat_activity,base.group_user,1,0,0,0
 acc_erp_siat_activity,acc_erp_siat_activity manager,model_siat_activity,base.group_erp_manager,1,1,1,1
+acc_usr_siat_payments,acc_usr_siat_payments user,model_siat_payment_method,base.group_user,1,0,0,0
+acc_erp_siat_payments,acc_erp_siat_payments manager,model_siat_payment_method,base.group_erp_manager,1,1,1,1
+acc_usr_siat_countries,acc_usr_siat_countries user,model_siat_country,base.group_user,1,0,0,0
+acc_erp_siat_countries,acc_erp_siat_countries manager,model_siat_country,base.group_erp_manager,1,1,1,1
+acc_usr_siat_pos_type,acc_usr_siat_pos_type user,model_siat_pos_type,base.group_user,1,0,0,0
+acc_erp_siat_pos_type,acc_erp_siat_pos_type manager,model_siat_pos_type,base.group_erp_manager,1,1,1,1
+acc_usr_siat_currency,acc_usr_siat_currency user,model_siat_currency,base.group_user,1,0,0,0
+acc_erp_siat_currency,acc_erp_siat_currency manager,model_siat_currency,base.group_erp_manager,1,1,1,1
 

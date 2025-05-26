@@ -3,10 +3,33 @@
 
 
     <menuitem
-        id="menu_siat_doc_type"
-        name="Document Type"
+        id="menu_contact_siat_catalog"
+        name="SIAT Catalog"
         parent="contacts.res_partner_menu_config"
-        action="trn_partner_advance.action_view_siat_document_type"
         sequence="20"/>
 
+    <menuitem
+        id="menu_contact_siat_doc_type"
+        name="Document Type"
+        parent="menu_contact_siat_catalog"
+        action="trn_partner_advance.action_view_siat_document_type"
+        sequence="5"/>
+     <menuitem
+        id="menu_contact_siat_payment"
+        name="Payment Methods"
+        parent="menu_contact_siat_catalog"
+        action="trn_partner_advance.action_view_siat_payment_method"
+        sequence="10"/>
+     <menuitem
+        id="menu_contact_siat_country"
+        name="Country"
+        parent="menu_contact_siat_catalog"
+        action="trn_partner_advance.action_view_siat_country"
+        sequence="15"/>
+     <menuitem
+        id="menu_contact_siat_currency"
+        name="Currencies"
+        parent="menu_contact_siat_catalog"
+        action="trn_partner_advance.action_view_siat_currency"
+        sequence="20"/>
 </odoo>
