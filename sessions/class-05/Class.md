@@ -5,7 +5,7 @@
 
 #### Agenda
 
-### Introduccion
+### Introducción
 
 **1.- Estructura de directorios de un Modulo de Odoo**
 
@@ -85,14 +85,14 @@ o2m_ids = fields.One2many()
 d_ids = fields.Many2many(related="m2o_id.m2m_ids")
 e_ids = fields.One2many(related="m2o_id.o2m_ids")
 
-# No funciona: se debe utilizar un relacion Many2many computada
+# No funciona: se debe utilizar un relaciónMany2many computada
 f_ids = fields.Many2many(related="m2m_ids.m2m_ids")
 g_ids = fields.One2many(related="o2m_ids.o2m_ids")
 
 ```
 
 
-### Practica 01
+### Práctica 01
 
 La empresa "El Porvenir SRL" nos ha contratado para realizar adecuaciones
 a su sistema ERP Odoo version 16 en su formulario de contactos, con el fin de iniciar
@@ -102,7 +102,7 @@ para lo cual nos solicita como primera fase lo siguiente:
 1. Adicionar el tipo de documento en el formulario de contactos
 2. Adicionar la extension del documento si corresponde al tipo CI
 3. Mostrar Nro de documento y extension en un solo campo si corresponde en formulario y lista
-4. Que el campo nro documento se pueda buscar en un solo campo de filtro junto con el nombre, direccion y telefono
+4. Que el campo nro documento se pueda buscar en un solo campo de filtro junto con el nombre, direccióny telefono
 5. Que se pueda filtrar por tipo de documento en la vista de lista
 6. Identificar a los contactos que son clientes y los contactos que son usuarios del sistema.
 Tomar en cuenta que un usuario puede ser un cliente.

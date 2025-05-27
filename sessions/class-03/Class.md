@@ -22,7 +22,7 @@ de odoo.**
 **2.- Completar Ambiente de Desarrollo**
 
 - Configuración de mani 
-  - Instalar aplicacion [Github](https://github.com/bytecodebo/byc_tools)
+  - Instalar aplicación[Github](https://github.com/bytecodebo/byc_tools)
     - Crear variables de entorno en ~/.bash_profile or ~/.bash_:
       
   ```bash
@@ -44,7 +44,7 @@ de odoo.**
 
 mani init
 
-# finalizada la configuracion ejecutar nuevamente 
+# finalizada la configuraciónejecutar nuevamente 
 # crea archivo mani.yaml con valores de cnf.env
 
 mani init
@@ -56,7 +56,7 @@ mani init
 #  - partner-contact
 #  - account-invoicing
 # guardar y ejecutar
-# se generara archivo project.yaml con la configuracion de 
+# se generara archivo project.yaml con la configuraciónde 
 # todos los repositorios adicionados
 mani sync
 # ejecutar nuevamente 

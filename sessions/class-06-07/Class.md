@@ -5,7 +5,7 @@
 
 #### Agenda
 
-### Introduccion
+### Introducción
 
 En Odoo, la estructura de un módulo avanzado suele incluir modelos, vistas y controladores. Los modelos definen la estructura de los datos, las vistas la interfaz de usuario para interactuar con esos datos, y los controladores gestionan las solicitudes web y la lógica de la aplicación.
 
@@ -67,7 +67,7 @@ Las funciones implementan funcionalidades web en Odoo, asi como los decoradores 
 - Los controladores la logica de la aplicación y la interacción con el usuario a través de la web. 
 
 
-#### 4. Continuacion Practica 01
+#### 4. ContinuaciónPráctica 01
 
 - Integrar Tipo de Documento a Contacto
 - Crear las vistas de tipo de documento
