@@ -15,13 +15,15 @@
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Hidden/Tools',
-    'version': '16.0.1.0.2',
+    'version': '16.0.1.0.3',
 
     # any module necessary for this one to work correctly
     'depends': ['base_setup',
                 'server_action_mass_edit',
                 'module_auto_update',
-                'sequence_reset_period'],
+                'sequence_reset_period',
+                'base_user_role',
+                ],
 
     # always loaded
     'data': [

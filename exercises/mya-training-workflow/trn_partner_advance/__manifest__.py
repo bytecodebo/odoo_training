@@ -2,7 +2,7 @@
 
 {
     'name': 'Mya Partner Advance',
-    'version': '16.0.1.0.3',
+    'version': '16.0.1.0.2',
     'summary': 'Adecuaciones Modulo de contact partner',
     'description': 'Nuevas funcionalidades en formulario de contactos',
     'category': 'Contact',
@@ -11,7 +11,8 @@
     'license': 'AGPL-3',
     'depends': ['web',
                 'contacts',
-                'trn_main_setting'],
+                'trn_main_setting',
+                ],
     'external_dependencies': {
         'python': ['openupgradelib'],
     },
