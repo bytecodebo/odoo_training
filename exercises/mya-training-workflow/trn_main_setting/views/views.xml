@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="trn_main_setting.list">
+      <field name="name">trn_main_setting list</field>
+      <field name="model">trn_main_setting.trn_main_setting</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="trn_main_setting.action_window">
+      <field name="name">trn_main_setting window</field>
+      <field name="res_model">trn_main_setting.trn_main_setting</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="trn_main_setting.action_server">
+      <field name="name">trn_main_setting server</field>
+      <field name="model_id" ref="model_trn_main_setting_trn_main_setting"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="trn_main_setting" id="trn_main_setting.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="trn_main_setting.menu_1" parent="trn_main_setting.menu_root"/>
+    <menuitem name="Menu 2" id="trn_main_setting.menu_2" parent="trn_main_setting.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="trn_main_setting.menu_1_list" parent="trn_main_setting.menu_1"
+              action="trn_main_setting.action_window"/>
+    <menuitem name="Server to list" id="trn_main_setting" parent="trn_main_setting.menu_2"
+              action="trn_main_setting.action_server"/>
+-->
+  </data>
+</odoo>

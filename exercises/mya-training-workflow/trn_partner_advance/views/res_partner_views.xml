@@ -42,5 +42,22 @@
                 </xpath>
             </field>
         </record>
+
+        <record id="view_res_partner_inherit_search" model="ir.ui.view">
+           <field name="name">view.res.partner.search</field>
+           <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="filter_domain">['|', '|', '|', '|', '|', '|', ('display_name', 'ilike', self), ('ref', 'ilike', self),
+                                                     ('email', 'ilike', self), ('vat', 'ilike', self), ('company_registry', 'ilike', self),
+                                                     ('siat_extension_di', 'ilike', self), ('street', 'ilike', self)]
+                    </attribute>
+                </xpath>
+                <xpath expr="//filter[@name='salesperson']" position="after">
+                    <filter name="grp_doc_type" string="Document type" context="{'group_by': 'siat_doc_type_id'}"/>
+                </xpath>
+           </field>
+        </record>
     </data>
 </odoo>

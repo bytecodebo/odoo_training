@@ -8,14 +8,36 @@
             <field name="model_id" ref="base.model_res_partner"/>
         </record>
 
+         <record model="ir.actions.server.mass.edit.line" id="mass_edit_contact_doc_type">
+             <field name="server_action_id" ref="mass_edit_contact"/>
+             <field name="field_id" ref="trn_partner_advance.field_res_partner__siat_doc_type_id"/>
+        </record>
          <record model="ir.actions.server.mass.edit.line" id="mass_edit_contact_country">
              <field name="server_action_id" ref="mass_edit_contact"/>
              <field name="field_id" ref="base.field_res_partner__country_id"/>
         </record>
-
+        <record model="ir.actions.server.mass.edit.line" id="mass_edit_contact_country_state">
+             <field name="server_action_id" ref="mass_edit_contact"/>
+             <field name="field_id" ref="base.field_res_partner__state_id"/>
+        </record>
+         <record model="ir.actions.server.mass.edit.line" id="mass_edit_contact_user_id">
+             <field name="server_action_id" ref="mass_edit_contact"/>
+             <field name="field_id" ref="base.field_res_partner__user_id"/>
+        </record>
          <record model="ir.actions.server.mass.edit.line" id="mass_edit_contact_city">
              <field name="server_action_id" ref="mass_edit_contact"/>
              <field name="field_id" ref="base.field_res_partner__city"/>
+        </record>
+
+         <record model="ir.actions.server.mass.edit.line" id="mass_edit_contact_company_type">
+             <field name="server_action_id" ref="mass_edit_contact"/>
+             <field name="field_id" ref="base.field_res_partner__company_type"/>
+        </record>
+
+        <record id="mass_edit_contact_category" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_contact"/>
+            <field name="field_id" ref="base.field_res_partner__category_id"/>
+            <field name="widget_option">many2many_tags</field>
         </record>
 
          <function model="ir.actions.server" name="create_action">

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.module.category" id="trn_pa_category">
+            <field name="name">Partner Advance</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="grp_mya_assistance" model="res.groups">
+            <field name="name">Assistant</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="category_id" ref="trn_pa_category"/>
+        </record>
+
+        <record id="grp_mya_supervisor" model="res.groups">
+            <field name="name">Supervisor</field>
+             <field name="category_id" ref="trn_pa_category"/>
+            <field name="implied_ids" eval="[(4, ref('grp_mya_assistance')),
+            (4, ref('base.group_partner_manager'))]"/>
+        </record>
+
+
+        <record id="grp_mya_manager" model="res.groups">
+            <field name="name">Manager</field>
+             <field name="category_id" ref="trn_pa_category"/>
+            <field name="implied_ids" eval="[(4, ref('grp_mya_supervisor'))]"/>
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+    </data>
+</odoo>
