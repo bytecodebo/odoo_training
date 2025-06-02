@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="0">
+    <record id="partner_stage_pre_documentation" model="res.partner.stage">
+        <field name="name">Documentation</field>
+        <field name="state">pre_select</field>
+        <field name="sequence">12</field>
+        <field name="code">PRE-01</field>
+         <field name="active" eval="0"/>
+    </record>
+    <record id="partner_stage_pre_examination" model="res.partner.stage">
+        <field name="name">Evaluation</field>
+        <field name="state">pre_select</field>
+        <field name="sequence">14</field>
+        <field name="code">PRE-02</field>
+        <field name="active" eval="0"/>
+    </record>
+      <record id="partner_stage_pre_approval" model="res.partner.stage">
+        <field name="name">Pre Approval</field>
+        <field name="state">pre_select</field>
+        <field name="sequence">16</field>
+        <field name="code">PRA-01</field>
+         <field name="active" eval="1"/>
+    </record>
+</odoo>

@@ -2,7 +2,7 @@
 
 {
     'name': 'Mya Partner Advance',
-    'version': '16.0.1.0.2',
+    'version': '16.0.1.0.3',
     'summary': 'Adecuaciones Modulo de contact partner',
     'description': 'Nuevas funcionalidades en formulario de contactos',
     'category': 'Contact',
@@ -10,8 +10,10 @@
     'website': 'http://mya.com',
     'license': 'AGPL-3',
     'depends': ['web',
-                'contacts',
+                'partner_stage',
+                # 'contacts',
                 'trn_main_setting',
+                'multi_step_wizard',
                 ],
     'external_dependencies': {
         'python': ['openupgradelib'],
@@ -22,6 +24,7 @@
         'security/supervisor/ir.model.access.csv',
         'security/ir.model.access.csv',
         'data/data_contacts.xml',
+        'data/partner_stage_data.xml',
         'data/data_siat.xml',
         'data/data_mass_contacts.xml',
         'views/res_config.xml',
@@ -31,6 +34,7 @@
         'views/siat_catalogs_country_views.xml',
         'views/siat_catalogs_cur_views.xml',
         'views/siat_catalogs_pos_type_views.xml',
+        'wizard/wizard_pre_approve.xml',
         'views/res_partner_views.xml',
         'views/menu_items.xml'
     ],

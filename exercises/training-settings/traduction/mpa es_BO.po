@@ -1,0 +1,618 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* trn_main_setting
+# 	* trn_partner_advance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-02 22:18+0000\n"
+"PO-Revision-Date: 2025-06-02 18:26-0400\n"
+"Last-Translator: Roberto Saavedra <rsaavedrav@copelme.com>\n"
+"Language-Team: \n"
+"Language: es_BO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_inherit_res_partner_form_form
+msgid ""
+"<span class=\"o_stat_text\">Pre</span>\n"
+"                                        <span class=\"o_stat_text\">Approval</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Pre</span>\n"
+"                                        <span class=\"o_stat_text\">Aprobacion</span>"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity__active
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_catalog_mixin__active
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_country__active
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_currency__active
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_document_type__active
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_payment_method__active
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_pos_type__active
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_uom__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity__activity_type
+msgid "Activity Type"
+msgstr "Tipo de actividad"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__allow_back
+msgid "Allow Back"
+msgstr "Retroceder"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_base_siat_catalog_search
+msgid "Archived"
+msgstr "Archivados"
+
+#. module: trn_partner_advance
+#: model:res.groups,name:trn_partner_advance.grp_mya_assistance
+#, fuzzy
+msgid "Assistant"
+msgstr "Asistente"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity__caeb_code
+#, fuzzy
+msgid "CAEB Code"
+msgstr "Código CAEB"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_form_base_siat_catalog
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_activity__state__cancel
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_catalog_mixin__state__cancel
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_country__state__cancel
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_currency__state__cancel
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_document_type__state__cancel
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_payment_method__state__cancel
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_pos_type__state__cancel
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_uom__state__cancel
+msgid "Cancelled"
+msgstr "Anulado"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_base_siat_catalog_tree
+#, fuzzy
+msgid "Catalog"
+msgstr "Catálogo"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_res_partner__partner_code
+#: model:ir.model.fields,field_description:trn_partner_advance.field_res_users__partner_code
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity__code_classificator
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_catalog_mixin__code_classificator
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_country__code_classificator
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_currency__code_classificator
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_document_type__code_classificator
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_payment_method__code_classificator
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_pos_type__code_classificator
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_uom__code_classificator
+msgid "Code"
+msgstr "Código"
+
+#. module: trn_partner_advance
+#: model:ir.model,name:trn_partner_advance.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: trn_main_setting
+#: model_terms:ir.ui.view,arch_db:trn_main_setting.view_config_settings_inherit_mst
+#, fuzzy
+msgid "Company Settings"
+msgstr "Configuración de la empresa"
+
+#. module: trn_partner_advance
+#: model:ir.model,name:trn_partner_advance.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes"
+
+#. module: trn_partner_advance
+#: model:ir.model,name:trn_partner_advance.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: trn_partner_advance
+#: model:ir.model,name:trn_partner_advance.model_res_partner_stage
+msgid "Contact Stage"
+msgstr "Etapa de contacto"
+
+#. module: trn_partner_advance
+#: model:ir.actions.act_window,name:trn_partner_advance.action_view_siat_country
+msgid "Countries"
+msgstr "Países"
+
+#. module: trn_partner_advance
+#: model:ir.ui.menu,name:trn_partner_advance.menu_contact_siat_country
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_siat_country_inherit_tree
+msgid "Country"
+msgstr "País"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_config_settings_inherit_pad
+msgid "Create Partner Demos"
+msgstr "Crear Contactos demos"
+
+#. module: trn_partner_advance
+#: model_terms:ir.actions.act_window,help:trn_partner_advance.action_view_siat_country
+#: model_terms:ir.actions.act_window,help:trn_partner_advance.action_view_siat_currency
+#: model_terms:ir.actions.act_window,help:trn_partner_advance.action_view_siat_document_type
+#: model_terms:ir.actions.act_window,help:trn_partner_advance.action_view_siat_payment_method
+#: model_terms:ir.actions.act_window,help:trn_partner_advance.action_view_siat_pos_type
+#, fuzzy
+msgid "Create new document"
+msgstr "Crear un nuevo documento"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__create_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity__create_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_country__create_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_currency__create_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_document_type__create_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_payment_method__create_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_pos_type__create_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_uom__create_uid
+#, fuzzy
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__create_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity__create_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_country__create_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_currency__create_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_document_type__create_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_payment_method__create_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_pos_type__create_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_uom__create_date
+#, fuzzy
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: trn_partner_advance
+#: model:ir.actions.act_window,name:trn_partner_advance.action_view_siat_currency
+#: model:ir.ui.menu,name:trn_partner_advance.menu_contact_siat_currency
+msgid "Currencies"
+msgstr "Monedas"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_siat_currency_inherit_tree
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: trn_partner_advance
+#: model:res.partner.category,name:trn_partner_advance.pad_category_customer
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity__description
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_catalog_mixin__description
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_country__description
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_currency__description
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_document_type__description
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_payment_method__description
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_pos_type__description
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_uom__description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__display_name
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity__display_name
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_country__display_name
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_currency__display_name
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_document_type__display_name
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_payment_method__display_name
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_pos_type__display_name
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_uom__display_name
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_res_partner__siat_doc_type_id
+#: model:ir.model.fields,field_description:trn_partner_advance.field_res_users__siat_doc_type_id
+msgid "Doc. type"
+msgstr "Tipo doc."
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__document_id
+#, fuzzy
+msgid "Document (CI)"
+msgstr "Documento (CI)"
+
+#. module: trn_partner_advance
+#: model:ir.ui.menu,name:trn_partner_advance.menu_contact_siat_doc_type
+msgid "Document Type"
+msgstr "Tipo dcto."
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_res_partner_inherit_search
+msgid "Document type"
+msgstr "Tipo Doc"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_siat_document_type_inherit_tree
+msgid "Document type Id's"
+msgstr "Tipo dcto."
+
+#. module: trn_partner_advance
+#: model:ir.actions.act_window,name:trn_partner_advance.action_view_siat_document_type
+#, fuzzy
+msgid "Document types"
+msgstr "Tipos de documentos"
+
+#. module: trn_partner_advance
+#: model:res.partner.stage,name:trn_partner_advance.partner_stage_pre_documentation
+msgid "Documentation"
+msgstr "Documentación"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_activity__state__draft
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_catalog_mixin__state__draft
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_country__state__draft
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_currency__state__draft
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_document_type__state__draft
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_payment_method__state__draft
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_pos_type__state__draft
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_uom__state__draft
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_form_base_siat_catalog
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity__enabled
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_catalog_mixin__enabled
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_country__enabled
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_currency__enabled
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_document_type__enabled
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_payment_method__enabled
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_pos_type__enabled
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_uom__enabled
+msgid "Enabled"
+msgstr "Habilitado"
+
+#. module: trn_partner_advance
+#: model:res.partner.stage,name:trn_partner_advance.partner_stage_pre_examination
+#, fuzzy
+msgid "Evaluation"
+msgstr "Evaluación"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_res_partner__siat_extension_di
+#: model:ir.model.fields,field_description:trn_partner_advance.field_res_users__siat_extension_di
+#, fuzzy
+msgid "Extension"
+msgstr "Extensión"
+
+#. module: trn_main_setting
+#: model_terms:ir.ui.view,arch_db:trn_main_setting.view_config_settings_inherit_mst
+msgid "General Settings"
+msgstr "Ajustes"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_base_siat_catalog_search
+#, fuzzy
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__id
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity__id
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_country__id
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_currency__id
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_document_type__id
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_payment_method__id
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_pos_type__id
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_uom__id
+msgid "ID"
+msgstr "ID"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard____last_update
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity____last_update
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_country____last_update
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_currency____last_update
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_document_type____last_update
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_payment_method____last_update
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_pos_type____last_update
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_uom____last_update
+msgid "Last Modified on"
+msgstr "Última modificación"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__write_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity__write_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_country__write_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_currency__write_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_document_type__write_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_payment_method__write_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_pos_type__write_uid
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_uom__write_uid
+#, fuzzy
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__write_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity__write_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_country__write_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_currency__write_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_document_type__write_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_payment_method__write_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_pos_type__write_date
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_uom__write_date
+msgid "Last Updated on"
+msgstr "Última actualización on"
+
+#. module: trn_partner_advance
+#: model:res.groups,name:trn_partner_advance.grp_mya_manager
+msgid "Manager"
+msgstr "Administrador"
+
+#. module: trn_partner_advance
+#: model:ir.actions.server,name:trn_partner_advance.mass_edit_contact
+#, fuzzy
+msgid "Mass update from file"
+msgstr "Actualización masiva desde archivo"
+
+#. module: trn_main_setting
+#: model_terms:ir.ui.view,arch_db:trn_main_setting.view_config_settings_inherit_mst
+#, fuzzy
+msgid "Mya Settings"
+msgstr "Configuración de Mya"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_inherit_res_partner_form_form
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_res_partner_inherit_tree_inherit_tree
+#, fuzzy
+msgid "NIT/CI/EXP"
+msgstr "NIT/CI/EXP"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__name
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.pre_approve_form
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_base_siat_catalog_search
+msgid "Name"
+msgstr "Nombre"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_res_partner__full_vat
+#: model:ir.model.fields,field_description:trn_partner_advance.field_res_users__full_vat
+#, fuzzy
+msgid "No. Document"
+msgstr "Tipo dcto."
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_siat_pos_type_inherit_tree
+#, fuzzy
+msgid "POS type"
+msgstr "Tipo de punto de venta"
+
+#. module: trn_partner_advance
+#: model:ir.actions.act_window,name:trn_partner_advance.action_view_siat_pos_type
+#, fuzzy
+msgid "POS types"
+msgstr "Tipos de POS"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__partner_id
+msgid "Partner"
+msgstr "Contacto"
+
+#. module: trn_partner_advance
+#: model:ir.module.category,name:trn_partner_advance.trn_pa_category
+#, fuzzy
+msgid "Partner Advance"
+msgstr "Avance de socios"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.pre_approve_form
+#, fuzzy
+msgid "Partner is now pre approved."
+msgstr "El socio ahora está preaprobado."
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_siat_payment_method_inherit_tree
+msgid "Payment Method"
+msgstr "Método de Pago"
+
+#. module: trn_partner_advance
+#: model:ir.actions.act_window,name:trn_partner_advance.action_view_siat_payment_method
+#: model:ir.ui.menu,name:trn_partner_advance.menu_contact_siat_payment
+msgid "Payment Methods"
+msgstr "Forma de Pago"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__photo
+#, fuzzy
+msgid "Photo"
+msgstr "Foto"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_form_base_siat_catalog
+msgid "Post"
+msgstr "Publicar"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_activity__state__posted
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_catalog_mixin__state__posted
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_country__state__posted
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_currency__state__posted
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_document_type__state__posted
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_payment_method__state__posted
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_pos_type__state__posted
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__siat_uom__state__posted
+msgid "Posted"
+msgstr "Publicado"
+
+#. module: trn_partner_advance
+#: model:ir.actions.act_window,name:trn_partner_advance.action_open_pre_approve
+#: model:ir.actions.act_window,name:trn_partner_advance.open_pre_approve
+#: model:res.partner.stage,name:trn_partner_advance.partner_stage_pre_approval
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_inherit_res_partner_form_form
+#, fuzzy
+msgid "Pre Approval"
+msgstr "Aprobación previa"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields.selection,name:trn_partner_advance.selection__res_partner_stage__state__pre_select
+#, fuzzy
+msgid "Pre Approved"
+msgstr "Pre Aprobado"
+
+#. module: trn_partner_advance
+#: model:ir.model,name:trn_partner_advance.model_pre_approve_wizard
+#, fuzzy
+msgid "PreApproveWizard"
+msgstr "PreApproveWizard"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_res_partner_stage__state
+msgid "Related State"
+msgstr "Estado relacionado"
+
+#. module: trn_partner_advance
+#: model:ir.ui.menu,name:trn_partner_advance.menu_contact_siat_catalog
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_form_base_siat_catalog
+#, fuzzy
+msgid "SIAT Catalog"
+msgstr "Catálogo SIAT"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_form_inherit_siat_country
+#, fuzzy
+msgid "SIAT Country"
+msgstr "País SIAT"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_form_inherit_siat_currency
+#, fuzzy
+msgid "SIAT Currency"
+msgstr "Moneda SIAT"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_form_inherit_siat_document_type
+#, fuzzy
+msgid "SIAT Document Type"
+msgstr "Tipo de documento SIAT"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_form_inherit_siat_pos_type
+#, fuzzy
+msgid "SIAT POS type"
+msgstr "Tipo de TPV SIAT"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_form_inherit_siat_payment_method
+#, fuzzy
+msgid "SIAT Payment Method"
+msgstr "Método de pago SIAT"
+
+#. module: trn_main_setting
+#: model_terms:ir.ui.view,arch_db:trn_main_setting.view_config_settings_inherit_mst
+#, fuzzy
+msgid "Sale Settings"
+msgstr "Configuración de ventas"
+
+#. module: trn_main_setting
+#: model_terms:ir.ui.view,arch_db:trn_main_setting.view_config_settings_inherit_mst
+msgid "Sales"
+msgstr "Ventas"
+
+#. module: trn_partner_advance
+#: model:ir.model,name:trn_partner_advance.model_siat_activity
+#, fuzzy
+msgid "Siat Activity"
+msgstr "Actividad Siat"
+
+#. module: trn_partner_advance
+#: model:ir.model,name:trn_partner_advance.model_siat_catalog_mixin
+#, fuzzy
+msgid "Siat Catalog Mixin"
+msgstr "Catálogo Siat Mixin"
+
+#. module: trn_partner_advance
+#: model_terms:ir.ui.view,arch_db:trn_partner_advance.view_base_siat_catalog_search
+#, fuzzy
+msgid "Siat Catalog Search"
+msgstr "Búsqueda en el catálogo de Siat"
+
+#. module: trn_partner_advance
+#: model:ir.model,name:trn_partner_advance.model_siat_country
+#, fuzzy
+msgid "Siat Country"
+msgstr "País de Siat"
+
+#. module: trn_partner_advance
+#: model:ir.model,name:trn_partner_advance.model_siat_currency
+#, fuzzy
+msgid "Siat Currency"
+msgstr "Moneda Siat"
+
+#. module: trn_partner_advance
+#: model:ir.model,name:trn_partner_advance.model_siat_document_type
+#, fuzzy
+msgid "Siat Document Type"
+msgstr "Tipo de documento Siat"
+
+#. module: trn_partner_advance
+#: model:ir.model,name:trn_partner_advance.model_siat_pos_type
+#, fuzzy
+msgid "Siat POS Type"
+msgstr "Tipo de punto de venta Siat"
+
+#. module: trn_partner_advance
+#: model:ir.model,name:trn_partner_advance.model_siat_payment_method
+#, fuzzy
+msgid "Siat Payments"
+msgstr "Pagos Siat"
+
+#. module: trn_partner_advance
+#: model:ir.model,name:trn_partner_advance.model_siat_uom
+#, fuzzy
+msgid "Siat UoM"
+msgstr "Siat UoM"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__state
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_activity__state
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_catalog_mixin__state
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_country__state
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_currency__state
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_document_type__state
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_payment_method__state
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_pos_type__state
+#: model:ir.model.fields,field_description:trn_partner_advance.field_siat_uom__state
+#, fuzzy
+msgid "State"
+msgstr "Estado"
+
+#. module: trn_partner_advance
+#: model:res.groups,name:trn_partner_advance.grp_mya_supervisor
+msgid "Supervisor"
+msgstr "PDV: Supervisor"
+
+#. module: trn_partner_advance
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__test_one
+#: model:ir.model.fields,field_description:trn_partner_advance.field_pre_approve_wizard__test_two
+#, fuzzy
+msgid "Test One"
+msgstr "Primera prueba"
+
+#. module: trn_partner_advance
+#: model:res.partner.category,name:trn_partner_advance.pad_category_user
+msgid "User"
+msgstr "Usuario"

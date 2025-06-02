@@ -68,3 +68,8 @@ class ResPartner(models.Model):
             # 'partner_code':(x + 1000),
             'company_type': company_type,
         }
+
+    def action_pre_approval(self):
+        self.ensure_one()
+        action = self.env["ir.actions.actions"]._for_xml_id("trn_partner_advance.action_open_pre_approve")
+        return action
