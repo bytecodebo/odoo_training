@@ -23,6 +23,8 @@
                 'module_auto_update',
                 'sequence_reset_period',
                 'base_user_role',
+                'queue_job',
+                'queue_job_cron_jobrunner'
                 ],
 
     # always loaded

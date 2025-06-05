@@ -10,6 +10,11 @@
             <field name="arch" type="xml">
                 <!-- position values: after|before|replace|attributes|inside -->
                 <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="action_load_massive_customer"
+                            class="oe_highlight"
+                            type="object"
+                            icon="fa-cogs"
+                            string="Massive load"/>
                   <button name="action_pre_approval"
                           icon="fa-user"
 

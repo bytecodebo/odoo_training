@@ -35,6 +35,7 @@
         'views/siat_catalogs_cur_views.xml',
         'views/siat_catalogs_pos_type_views.xml',
         'wizard/wizard_pre_approve.xml',
+        'wizard/wizawrd_data_load_huge.xml',
         'views/res_partner_views.xml',
         'views/menu_items.xml'
     ],

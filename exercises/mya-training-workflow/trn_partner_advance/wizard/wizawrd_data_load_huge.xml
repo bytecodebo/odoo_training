@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <record id="view_load_data_huge_wizard" model="ir.ui.view">
+        <field name="name">Events</field>
+        <field name="model">data.load.huge.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Events">
+                <group>
+                    <group>
+                        <field name="load_type"/>
+                        <field name="quantities"/>
+                    </group>
+                </group>
+                <footer>
+                      <button
+                        name="action_process"
+                        string="Process"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button
+                        name="action_process"
+                        string="Test Process"
+                        type="object"
+                        class="oe_highlight"
+                        context="{'ctx_test_mode': True}"
+                    />
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_load_data_huge_wizard" model="ir.actions.act_window">
+        <field name="name">Load Huge</field>
+        <field name="res_model">data.load.huge.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_load_data_huge_wizard" />
+        <field name="target">new</field>
+        <!--<field name="binding_model_id" ref="byi_main_siat.model_byi_sib_contingency" />-->
+    </record>
+    </data>
+</odoo>

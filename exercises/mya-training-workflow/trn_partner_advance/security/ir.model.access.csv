@@ -15,5 +15,7 @@ acc_usr_siat_currency,acc_usr_siat_currency user,model_siat_currency,base.group_
 acc_erp_siat_currency,acc_erp_siat_currency manager,model_siat_currency,base.group_erp_manager,1,1,1,1
 acc_usr_preapp_wizard,acc_usr_preapp_wizard user,model_pre_approve_wizard,base.group_user,1,0,0,0
 acc_erp_preapp_wizard,acc_erp_preapp_wizard manager,model_pre_approve_wizard,base.group_erp_manager,1,1,1,1
+acc_usr_wizard_load_huge,acc_usr_wizard_load_huge user,model_data_load_huge_wizard,base.group_user,1,0,0,0
+acc_erp_wizard_load_huge,acc_erp_wizard_load_huge manager,model_data_load_huge_wizard,base.group_erp_manager,1,1,1,1
 
 

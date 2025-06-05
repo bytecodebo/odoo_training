@@ -73,3 +73,8 @@ class ResPartner(models.Model):
         self.ensure_one()
         action = self.env["ir.actions.actions"]._for_xml_id("trn_partner_advance.action_open_pre_approve")
         return action
+
+    def action_load_massive_customer(self):
+        self.ensure_one()
+        action = self.env['ir.actions.actions']._for_xml_id("trn_partner_advance.action_load_data_huge_wizard")
+        return action
