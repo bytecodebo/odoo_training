@@ -1,0 +1,33 @@
+<odoo>
+  <data>
+     <record id="view_order_form_mya_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.mya.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+           <xpath expr="//sheet/group/group[1]" position="inside">
+                <field name="is_edited_invoice" invisible="1"/>
+                <field name="business_name" attrs="{'readonly': [('is_edited_invoice', '=', False)]}"/>
+                <field name="vat" attrs="{'readonly': [('is_edited_invoice', '=', False)]}"/>
+            </xpath>
+        </field>
+     </record>
+
+          <record id="view_quotation_tree_mya_inherit" model="ir.ui.view">
+        <field name="name">sale.order.tree.mya.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="priority">4</field>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-primary">state=='draft'</attribute>
+                <attribute name="decoration-success">invoice_status=='invoiced'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='create_date']" position="after">
+                <field name="date_order" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+  </data>
+</odoo>

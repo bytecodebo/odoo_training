@@ -28,6 +28,7 @@
         'data/data_siat.xml',
         'data/data_mass_contacts.xml',
         'views/res_config.xml',
+        'views/queue_job_views.xml',
         'views/siat_base_catalog_views.xml',
         'views/siat_catalogs_dct_views.xml',
         'views/siat_catalogs_pym_views.xml',

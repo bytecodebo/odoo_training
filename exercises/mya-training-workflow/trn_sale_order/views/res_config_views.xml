@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_inherit_module_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.mya.module</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="trn_partner_advance.view_config_settings_inherit_pad"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//div[@name='mya_div_sale']" position="inside">
+                            <div class="col-12 col-lg-6 o_setting_box" id="div_sale_mng_pricelist">
+                                <div class="o_setting_left_pane">
+                                    <field name="mya_mng_pricelist_by_customer"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="mya_mng_pricelist_by_customer"/>
+                                    <div class="text-muted">
+                                        Manage Price List by Customer
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="test_start_date" string="Start Date"/>
+                                    <field name="test_start_date"/>
+                                    <div class="row mx-auto mt8">
+                                        <button
+                                            string="Update Sale Orders (testing)"
+                                            name="action_update_sale_orders_demo"
+                                            context="{'default_company_id': company_id}"
+                                            type="object"
+                                            icon="fa-arrow-right"
+                                            class="btn-primary"
+                                        />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box" name="div_settings_sale_actions">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <div class="row mx-auto mt8">
+                                        <button
+                                            string="Update Stock (Testing)"
+                                            name="action_update_quantity_on_hand"
+                                            context="{'default_company_id': company_id}"
+                                            type="object"
+                                            icon="fa-arrow-right"
+                                            class="btn-primary"
+                                        />
+                                    </div>
+                                    <div class="row mx-auto mt8">
+
+                                        <button
+                                            string="Update Product Pricelist (Testing)"
+                                            name="action_update_pricelist"
+                                            context="{'default_company_id': company_id}"
+                                            type="object"
+                                            icon="fa-arrow-right"
+                                            class="btn-primary"
+                                        />
+                                        <br/>
+
+
+                                    </div>
+
+                                    <div class="row mx-auto mt8">
+                                        <button string="Clean Sale Orders Data"
+                                                name="action_delete_sale_order_data"
+                                                context="{'default_company_id': company_id}"
+                                                type="object"
+                                                confirm="Are you sure delete sale orders data?"
+                                                class="btn-primary"/>
+                                    </div>
+                                </div>
+
+                            </div>
+  <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                        </div>
+                     <div class="o_setting_right_pane">
+                           <button name="action_create_products_demo"
+                                     type="object"
+                                     class="btn-primary"
+                                     string="Create Products Demos"/>
+                     </div>
+  </div>
+
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

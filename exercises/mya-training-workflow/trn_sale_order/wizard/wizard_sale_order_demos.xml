@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_sol_demo_wizard_form" model="ir.ui.view">
+            <field name="name">view.sol.demo.wizard.form</field>
+            <field name="model">sale.order.demo.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Sale Orders Demo">
+                        <group>
+                            <group>
+                                <field name="company_id" groups="base.group_multi_company"
+                                       options="{'no_create_edit': True, 'no_open': True}"/>
+                                <field name="user_ids" string="Sellers"
+                                       options="{'no_create_edit': True, 'no_open': True}"
+                                       widget="many2many_tags" required="1"/>
+                                <field name="test_exclude_holidays" string="Exclude holidays"/>
+                                <separator colspan="2"/>
+                            </group>
+                            <group>
+                                <field name="test_qty_orders" string="No. sale orders"/>
+
+                                <field name="test_max_prd" string="No. Items/orders"/>
+                                 <field name="test_save_interval" attrs="{'invisible': [('test_qty_orders', '&lt;', 50)],
+                                            'required': [('test_qty_orders', '>=', 50)]}"/>
+                                <field name="start_event" widget="date" force_save="1"/>
+                                <field name="end_event" widget="date"/>
+                                <label for="test_start_time" string="Time from:"/>
+                                <div class="d-flex d-inline">
+                                    <field name="test_start_time" string="Start (HH:mm)" widget="float_time"/>
+                                    <span class="px-3">   To:   </span>
+                                    <field name="test_end_time" string="End (HH:mm)" widget="float_time"/>
+                                </div>
+
+                                 <field name="test_max_orders_per_day" string="Sale Orders/day"/>
+                                <field name="test_interval_orders_per_day" string="Interval day"/>
+                            </group>
+                        </group>
+                    <group>
+                        <group>
+                            <field name="test_draft_orders" widget="boolean_toggle"/>
+                            <field name="test_sale_orders" widget="boolean_toggle"
+                                   attrs="{'invisible': [('test_draft_orders', '=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="test_done_orders" widget="boolean_toggle"
+                                attrs="{'invisible': [('test_sale_orders', '=', False)]}"/>
+                        </group>
+                    </group>
+                      <footer>
+                        <button name="action_process_options" string="Process" type="object"
+                                class="btn-primary"/>
+                       <!-- <button name="create_invoices" string="Create Sale Orders and Invoices" type="object"
+                                context="{'sol_invoices': True}"/>-->
+                        <button name="action_test_period" string="Test Period" type="object"/>
+
+                          <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_view_mya_orders_demo" model="ir.actions.act_window">
+            <field name="name">Sale Orders Demo</field>
+            <field name="res_model">sale.order.demo.wizard</field>
+            <field name="view_mode">form</field>
+             <field name="target">new</field>
+            <field name="domain">[('company_id', '=', allowed_company_ids[0])]</field>
+             <field name="view_id" ref="view_sol_demo_wizard_form"/>
+        </record>
+
+
+    </data>
+</odoo>

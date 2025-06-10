@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.actions.server.mass.edit.line" id="mass_edit_contact_seller">
+             <field name="server_action_id" ref="trn_partner_advance.mass_edit_contact"/>
+             <field name="field_id" ref="base.field_res_partner__user_id"/>
+        </record>
+    </data>
+
+</odoo>

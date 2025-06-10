@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="stock.product_template_action_product" model="ir.actions.act_window">
+            <field name="context">{"search_default_consumable": 1, 'default_detailed_type': 'product',
+                                   'default_company_id': allowed_company_ids[0],
+                                   }</field>
+        </record>
+
+    </data>
+</odoo>

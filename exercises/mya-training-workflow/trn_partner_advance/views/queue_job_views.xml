@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_queue_job_inherit_tree" model="ir.ui.view">
+            <field name="name">view.queue.job.inherit.tree</field>
+            <field name="model">queue.job</field>
+            <field name="inherit_id" ref="queue_job.view_queue_job_tree"/>
+            <field name="arch" type="xml">
+        
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='eta']" position="replace">
+                    <field name="eta"/>
+                </xpath>
+                
+            </field>
+        </record>
+    </data>
+</odoo>

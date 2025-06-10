@@ -47,6 +47,7 @@ class ResPartner(models.Model):
             val = self._get_values_partner_demos(sequence,x, is_company, id_doc_type, complement)
             vals.append(val)
         new_partner_ids = self.env['res.partner'].sudo().create(vals)
+        self._cr.commit()
         for partner in new_partner_ids:
             # partner._onchange_name()
             partner.onchange_company_type()

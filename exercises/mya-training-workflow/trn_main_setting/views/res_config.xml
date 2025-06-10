@@ -13,7 +13,7 @@
                         <div class="row mt16 o_settings_container" title="Company Settings" name="mya_company_settings">
                         </div>
                         <h2>Sales</h2>
-                        <div class="row mt16 o_settings_container" title="Sale Settings" name="byc_div_sale">
+                        <div class="row mt16 o_settings_container" title="Sale Settings" name="mya_div_sale">
                         </div>
                         <h2>General Settings</h2>
                         <div class="row mt16 o_settings_container" title="General Settings" name="mya_div_general">
