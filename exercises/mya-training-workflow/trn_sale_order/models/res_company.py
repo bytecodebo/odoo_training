@@ -10,21 +10,21 @@ class ResCompany(models.Model):
     mya_mng_pricelist_by_customer = fields.Boolean(default=False)
 
     def action_update_quantity_on_hand(self, product_ids=None, qty=10000):
+        tag_demo_id = self.env.ref('trn_sale_order.prd_tag_demo_sales', raise_if_not_found=False)
         if product_ids:
             product_ids = self.env['product.product'].browse(product_ids)
         if not product_ids:
-            product_ids = self.env['product.product'].search([('company_id', 'in', [False, self.id])])
+            domain = [('company_id', '=', self.id),('type', '=', 'product'),
+                      ('product_tag_ids', 'in', tag_demo_id.ids)]
+            product_ids = self.env['product.product'].search(domain)
+        if product_ids:
+            quantity = self._context.get('prd_qty', 10)
+            self._update_qty_on_hand_products(product_ids.ids,quantity)
 
-        # for item in product_ids:
-        #     action = item.product_tmpl_id.with_context(default_product_id=item.id,
-        #                                                create=True).action_update_quantity_on_hand()
-        #     vals = {'product_id': item.id}
-        #     wizard_id = self.env['stock.change.product.qty'].with_context(**action['context']).create(vals)
-        #     wizard_id.new_quantity = qty
-        #     wizard_id.product_id = item
-        #     wizard_id.change_product_qty()
         return {'type': 'ir.actions.act_window_close'}
 
+    def _update_qty_on_hand_products(self, id_products=None, quantity=10):
+        pass
 
     def action_update_pricelist(self):
         pricelist_id = self.env['product.pricelist'].search([('company_id', 'in', [False, self.id])], limit=1)
@@ -56,23 +56,31 @@ class ResCompany(models.Model):
         product_ids = self.env["product.template"].search(
             [("company_id", "=", self.env.company.id)]
         )
-        max_qty = 50
+        max_qty = 20
         init = len(product_ids)
         vals = []
+        tag_demo_id = self.env.ref('trn_sale_order.prd_tag_demo_sales', raise_if_not_found=False)
+        prd_type = self._context.get('prd_type', 'consu')
         for x in range(init, init + max_qty):
-            val = {
-                "name": "Producto %s" % (x + 100),
-                "default_code": (x + 100),
-                "categ_id": self.env.ref("product.product_category_1").id,
-                "type": "consu",
-                "uom_id": self.env.ref("uom.product_uom_unit").id,
-                "uom_po_id": self.env.ref("uom.product_uom_unit").id,
-                "list_price": random.randint(5, x + 20),
-                "company_id": self.id,
-            }
+            val = self._create_demo_products(x, prd_type, tag_demo_id.ids)
             vals.append(val)
         self.env["product.template"].sudo().create(vals)
         return True
+
+    def _create_demo_products(self, sequence, product_type='consu', tag_ids=None):
+        if tag_ids is None:
+            tag_ids = []
+        return {
+            "name": "Producto %s" % (sequence + 100),
+            "default_code": (sequence + 100),
+            "categ_id": self.env.ref("product.product_category_1").id,
+            "type": product_type,
+            "uom_id": self.env.ref("uom.product_uom_unit").id,
+            "uom_po_id": self.env.ref("uom.product_uom_unit").id,
+            "list_price": random.randint(5, sequence + 20),
+            "company_id": self.id,
+            'product_tag_ids': [(6, 0, tag_ids)]
+        }
 
     def action_delete_sale_order_data(self):
         domain_pos = [('company_id', 'in', [False, self.id])]

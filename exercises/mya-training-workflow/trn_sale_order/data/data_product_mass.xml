@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="mass_edit_product" model="ir.actions.server">
+            <field name="state">mass_edit</field>
+            <field name="name">Mass update</field>
+            <field name="model_id" ref="product.model_product_template"/>
+        </record>
+
+        <record id="mass_edit_product_default_code" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_product"/>
+            <field name="field_id" ref="product.field_product_template__default_code"/>
+        </record>
+
+        <record id="mass_edit_product_categ_id" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_product"/>
+            <field name="field_id" ref="product.field_product_template__categ_id"/>
+        </record>
+
+         <record id="mass_edit_product_tag_id" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_product"/>
+            <field name="field_id" ref="product.field_product_template__product_tag_ids"/>
+             <field name="widget_option">many2many_tags</field>
+        </record>
+        
+        <record id="mass_edit_product_sale_uom_id" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_product"/>
+            <field name="field_id" ref="product.field_product_template__uom_id"/>
+        </record>
+        <record id="mass_edit_product_is_sale" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_product"/>
+            <field name="field_id" ref="product.field_product_template__sale_ok"/>
+        </record>
+        <record id="mass_edit_product_is_purchase" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_product"/>
+            <field name="field_id" ref="product.field_product_template__purchase_ok"/>
+        </record>
+        <record id="mass_products_company_id" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_product"/>
+            <field name="field_id" ref="product.field_product_template__company_id"/>
+        </record>
+        <record id="mass_products_type" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_product"/>
+            <field name="field_id" ref="product.field_product_template__type"/>
+        </record>
+
+        <function model="ir.actions.server" name="create_action">
+            <value eval="[ref('mass_edit_product')]"/>
+        </function>
+    </data>
+</odoo>

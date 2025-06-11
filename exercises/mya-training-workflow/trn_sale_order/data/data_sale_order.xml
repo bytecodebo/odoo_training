@@ -2,9 +2,9 @@
 <odoo>
     <data>
 
-        <record model="ir.actions.server.mass.edit.line" id="mass_edit_contact_seller">
-             <field name="server_action_id" ref="trn_partner_advance.mass_edit_contact"/>
-             <field name="field_id" ref="base.field_res_partner__user_id"/>
+        <record model="product.tag" id="prd_tag_demo_sales">
+            <field name="name">Demo Sales</field>
+            <field name="color">1</field>
         </record>
     </data>
 

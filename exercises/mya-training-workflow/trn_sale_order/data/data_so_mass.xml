@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="mass_edit_sale_orders" model="ir.actions.server">
+            <field name="state">mass_edit</field>
+            <field name="name">Upd Orders</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+        </record>
+
+        <record id="mass_sale_orders_user_id" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_sale_orders"/>
+            <field name="field_id" ref="sale.field_sale_order__user_id"/>
+        </record>
+        <record id="mass_sale_orders_state" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_sale_orders"/>
+            <field name="field_id" ref="sale.field_sale_order__state"/>
+        </record>
+        <record id="mass_sale_orders_date_order" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_sale_orders"/>
+            <field name="field_id" ref="sale.field_sale_order__date_order"/>
+        </record>
+        <record id="mass_sale_orders_date_order_commitment" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_sale_orders"/>
+            <field name="field_id" ref="sale.field_sale_order__commitment_date"/>
+        </record>
+        <record id="mass_sale_orders_date_expected" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_sale_orders"/>
+            <field name="field_id" ref="sale.field_sale_order__expected_date"/>
+        </record>
+        <record id="mass_sale_orders_currency_id" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_sale_orders"/>
+            <field name="field_id" ref="sale.field_sale_order__currency_id"/>
+        </record>
+
+        <record id="mass_sale_orders_currency_rate" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_sale_orders"/>
+            <field name="field_id" ref="sale.field_sale_order__currency_rate"/>
+        </record>
+
+        <record id="mass_sale_orders_team_id" model="ir.actions.server.mass.edit.line">
+            <field name="server_action_id" ref="mass_edit_sale_orders"/>
+            <field name="field_id" ref="sale.field_sale_order__team_id"/>
+        </record>
+
+        <function model="ir.actions.server" name="create_action">
+            <value eval="[ref('mass_edit_sale_orders')]"/>
+        </function>
+
+    </data>
+</odoo>

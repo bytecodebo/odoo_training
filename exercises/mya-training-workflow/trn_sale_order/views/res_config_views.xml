@@ -85,7 +85,17 @@
                            <button name="action_create_products_demo"
                                      type="object"
                                      class="btn-primary"
-                                     string="Create Products Demos"/>
+                                     string="Create Consumable Products Demo"/>
+                          <button name="action_create_products_demo"
+                                     type="object"
+                                     class="btn-primary"
+                                  context="{'prd_type': 'service'}"
+                                     string="Create Service Products Demo"/>
+                         <button name="action_create_products_demo"
+                                     type="object"
+                                     class="btn-primary"
+                                  context="{'prd_type': 'product'}"
+                                     string="Create Products Demo"/>
                      </div>
   </div>
 

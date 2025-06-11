@@ -50,6 +50,8 @@ class SaleOrderDemoWizard(models.TransientModel):
     test_exclude_holidays = fields.Boolean(default=True)
     test_max_orders_per_day = fields.Integer(default=1)
     test_interval_orders_per_day = fields.Integer(default=1)
+    sale_order_type = fields.Many2one('sale.order.type')
+    test_order_type_id = fields.Many2one('sale.order.type', domain="[('company_id', 'in', [False, company_id])]")
 
     @api.onchange('start_event')
     def _onchange_start_event(self):
@@ -67,10 +69,22 @@ class SaleOrderDemoWizard(models.TransientModel):
     def action_process_options(self):
         predefine = self._get_predefine_header()
         max_index = self.test_qty_orders
-        qty_users = len(self.user_ids) * max_index
+        qty_users = len(self.user_ids) * max_index + int(max_index/2)
         partner_ids, product_ids = self._get_data_for_testing(qty=qty_users)
         user_cashier_ids = self.user_ids
         remaining_qty = max_index
+        interval_save = self.test_save_interval if self.test_qty_invoice > 50 else self.test_qty_invoice
+        commit_intervals = self._get_intervals(remaining_qty, interval_save)
+        factor = 1.2
+        if remaining_qty <= 10:
+            factor = 1.5
+        elif remaining_qty <= 30:
+            factor = 1.6
+        elif remaining_qty <= 50:
+            factor = 1.7
+        elif remaining_qty <= 200:
+            factor = 1.8
+        start_index = 0
         if not partner_ids:
             raise UserError(_(""""There is no client enabled to generate sale orders. Verify that the following data:
                                                - Code
@@ -85,12 +99,13 @@ class SaleOrderDemoWizard(models.TransientModel):
 
         start_event = self.start_event.date()
         start_time = self.test_start_time
-        # date_time = self._get_date_time_order(start_event, start_time)
+        date_time = self._get_date_time_order(start_event, start_time)
         time_vals = {
             'order_qty': self.test_qty_orders
         }
         date_time_intervals = self._get_period_date_orders(**time_vals)
         # order_ids = self.env['sale.order']
+        start_index = 0
         for inv in range(0, max_index):
             kwargs = predefine
             date_time = date_time_intervals[inv]['date_order']
@@ -101,7 +116,7 @@ class SaleOrderDemoWizard(models.TransientModel):
             # partner_ids -=customer_id
             kwargs.update({
                 'partner_id': customer_id.id,
-                # 'business_name': customer_id.business_name or customer_id.name,
+                'business_name': customer_id.name.upper(),
                 'vat': customer_id.vat,
                 'user_id': user_cashier_id.id,
                 'create_date': date_time,
@@ -117,7 +132,7 @@ class SaleOrderDemoWizard(models.TransientModel):
                 prd_vals = {'product_id': prd.id,
                             'product_name': prd.name,
                             'price_unit': price_unit,
-                            'product_uom_qty': qty_rand,
+                            'product_uom_qty': qty_rand if prd.type != 'service' else 1,
                             'company_id': self.company_id.id}
                 line_vals = self._prepare_order_lines(**prd_vals)
                 # detail.append(line_vals)
@@ -147,6 +162,17 @@ class SaleOrderDemoWizard(models.TransientModel):
                     pass
             self.compute_specific_process(order)
 
+    def _get_intervals(self, qty, interval):
+        intervals = []
+        index = 0
+        while index < qty:
+            if index + interval >= qty:
+                intervals.append(qty)
+            else:
+                intervals.append(index + interval)
+            index += interval
+        return intervals
+
     def _get_date_time_order(self, order_date, order_time, order_end_date=None, order_end_time=None):
         date_time = fn_time_long(order_date, order_time, self.env.user.tz)
         if not order_end_date:
@@ -163,6 +189,7 @@ class SaleOrderDemoWizard(models.TransientModel):
     def _get_predefine_header(self):
         return {
             'company_id': self.company_id.id,
+            'type_id': self.test_order_type_id.id,
             'state': 'draft',
          }
 
@@ -288,11 +315,13 @@ class SaleOrderDemoWizard(models.TransientModel):
 
     def _get_domain_customers_random(self):
         company_id = self.company_id
+        cat_customer_id = self.env.ref('trn_partner_advance.pad_category_customer', raise_if_not_found=False)
         domain = [('company_id', 'in', [False,company_id.id]),
                            ('vat', 'not in', [False, '0']),
-                           ('partner_code', 'not in', [False, '0', '/'])]
+                           ('partner_code', 'not in', [False, '0', '/']),
+                  ('category_id', 'in', cat_customer_id.ids)]
         if self.user_ids:
-            domain += [('user_id', 'in', self.user_ids.ids)]
+            domain += ['|', ('user_id', 'in', self.user_ids.ids), ('user_id', '=', False)]
         return domain
 
     def _set_invoice_line_random(self, detail):
@@ -303,7 +332,10 @@ class SaleOrderDemoWizard(models.TransientModel):
         return [('company_id', 'in', [False,company_id.id]),
                            ('default_code', 'not in', [False, '0', '/'])] + self._get_filter_type_products()
 
-    def _get_filter_type_products(self):
+    def _get_filter_type_products(self, only_demos=True):
+        if only_demos:
+            prd_tag_id = self.env.ref('trn_sale_order.prd_tag_demo_sales')
+            return [('product_tag_ids', 'in', prd_tag_id.ids)]
         return []
 
     def _prepare_sale_order(self, **kwargs):
@@ -311,16 +343,17 @@ class SaleOrderDemoWizard(models.TransientModel):
         # order_lines = self._prepare_order_lines(**kwargs)
         data_sale_order = {"partner_id": kwargs.get('partner_id'),
                            'partner_invoice_id': kwargs.get('partner_id'),
+                           'business_name': kwargs.get('business_name'),
                            "date_order": kwargs.get('date_order', fields.Datetime.now()),
                            'user_id': kwargs.get('user_id', self.user_ids[0].id),
-                           # 'pricelist_id': kwargs.get('pricelist_id', self.test_order_type_id.pricelist_id.id)
-                           }
+                           'pricelist_id': kwargs.get('pricelist_id', self.test_order_type_id.pricelist_id.id)}
+
                            # 'order_line': [(0, 0, line) for line in order_lines]}
         return data_sale_order
 
     def _prepare_order_lines(self, **kwargs):
         vals = {
-            'product_uom_qty': kwargs.get('quantity', 1),
+            'product_uom_qty': kwargs.get('product_uom_qty', 1),
             'price_unit': kwargs.get('price_unit', random.randint(1, 10)),
             'product_id': kwargs.get('product_id', False),
             'name': kwargs.get('product_name', False),

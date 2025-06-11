@@ -3,7 +3,7 @@
     <data>
 
         <record model="ir.actions.server" id="mass_edit_contact">
-            <field name="name">Mass update from file</field>
+            <field name="name">Mass update Last</field>
             <field name="state">mass_edit</field>
             <field name="model_id" ref="base.model_res_partner"/>
         </record>

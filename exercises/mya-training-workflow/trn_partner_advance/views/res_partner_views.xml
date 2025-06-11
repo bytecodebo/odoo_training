@@ -32,6 +32,14 @@
                   <xpath expr="//field[@name='vat']" position="attributes">
                     <attribute name="string">NIT/CI/EXP</attribute>
                 </xpath>
+                 <xpath expr="//sheet/div[hasclass('oe_title')]/h1[1]" position="after">
+
+                    <label class="oe_edit_only" for="partner_code" string="Customer/Supplier Code"/>
+                    <h3>
+                        <field name="partner_code" placeholder="e.g. C0001" style="width: 10em"
+                            force_save="1"/>
+                    </h3>
+                </xpath>
                 <xpath expr="//field[@name='vat']" position="after">
                     <field name="siat_extension_di"/>
                     <field name="full_vat"/>
@@ -44,6 +52,9 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_tree"/>
             <field name="arch" type="xml">
+                 <xpath expr="//field[@name='display_name']" position="before">
+                    <field name="partner_code"/>
+                </xpath>
                 <xpath expr="//field[@name='vat']" position="after">
                       <field name="siat_extension_di" invisible="1"/>
                     <field name="siat_doc_type_id" optional="hide"/>

@@ -9,8 +9,12 @@
                 <form string="Sale Orders Demo">
                         <group>
                             <group>
+                                <field name="company_id" invisible="1"/>
                                 <field name="company_id" groups="base.group_multi_company"
                                        options="{'no_create_edit': True, 'no_open': True}"/>
+                                  <field name="test_order_type_id" string="Type"
+                                       options="{'no_create_edit': True, 'no_open': True}"
+                                    required="1"/>
                                 <field name="user_ids" string="Sellers"
                                        options="{'no_create_edit': True, 'no_open': True}"
                                        widget="many2many_tags" required="1"/>
