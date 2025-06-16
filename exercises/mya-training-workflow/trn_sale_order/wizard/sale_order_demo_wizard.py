@@ -106,6 +106,7 @@ class SaleOrderDemoWizard(models.TransientModel):
         date_time_intervals = self._get_period_date_orders(**time_vals)
         # order_ids = self.env['sale.order']
         start_index = 0
+        job_orders = []
         for inv in range(0, max_index):
             kwargs = predefine
             date_time = date_time_intervals[inv]['date_order']
@@ -141,15 +142,29 @@ class SaleOrderDemoWizard(models.TransientModel):
 
             order_vals['order_line'] = [(0, 0, line) for line in detail]
             time.sleep(0.1)
+            job_orders.append(order_vals)
             # _logger.info("\n\n Order Nro: %s \n\n" % order_vals)
             # sale_order_lines.append(order)
-            order = self.env['sale.order'].sudo().create(order_vals)
-            # order.create_date = date_time
-            # order.write({'create_date': date_time})
-            # order.update({'create_date': date_time})
-            _logger.info("\n\n Order Nro: %s  %s %s %s\n\n" % (order.id, order.name, inv, date_time))
-            # order_ids |= order
-            if self.test_sale_orders:
+        max_result = 30
+        index_so = int(len(job_orders) / max_result)
+        priority = 4
+        for x in range(0, index_so):
+            order_values = job_orders[start_index:start_index+max_result]
+            if not order_values:
+                continue
+            start_index += max_result
+            self.with_delay(priority=priority, description="Proceso masivo de reg. de pedidos", eta=10).action_generate_batch_orders(order_values, date_time)
+            priority += 2
+
+    def action_generate_batch_orders(self, order_values, date_time):
+        order_ids = self.env['sale.order'].sudo().create(order_values)
+        # order.create_date = date_time
+        # order.write({'create_date': date_time})
+        # order.update({'create_date': date_time})
+        # _logger.info("\n\n Order Nro: %s  %s %s %s\n\n" % (order.id, order.name, inv, date_time))
+        # order_ids |= order
+        if self.test_sale_orders:
+            for order in order_ids:
                 order.action_confirm()
                 order.date_order = date_time
                 order.write({'date_order': date_time})
@@ -160,7 +175,7 @@ class SaleOrderDemoWizard(models.TransientModel):
                 except Exception as e:
                     # -print(e)
                     pass
-            self.compute_specific_process(order)
+                self.compute_specific_process(order)
 
     def _get_intervals(self, qty, interval):
         intervals = []
