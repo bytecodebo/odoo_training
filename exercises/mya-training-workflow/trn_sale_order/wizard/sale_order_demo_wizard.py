@@ -66,8 +66,8 @@ class SaleOrderDemoWizard(models.TransientModel):
     def create_invoices(self):
         pass
 
-    def action_process_options(self):
-        predefine = self._get_predefine_header()
+    def action_process_options_old(self):
+
         max_index = self.test_qty_orders
         qty_users = len(self.user_ids) * max_index + int(max_index/2)
         partner_ids, product_ids = self._get_data_for_testing(qty=qty_users)
@@ -100,13 +100,124 @@ class SaleOrderDemoWizard(models.TransientModel):
         start_event = self.start_event.date()
         start_time = self.test_start_time
         date_time = self._get_date_time_order(start_event, start_time)
+        # time_vals = {
+        #    'order_qty': self.test_qty_orders}
+        # date_time_intervals = self._get_period_date_orders(**time_vals)
+        # order_ids = self.env['sale.order']
+        start_index = 0
+        # job_orders = []
+        # predefine = self._get_predefine_header()
+        # for inv in range(0, max_index):
+        #     kwargs = predefine
+        #     date_time = date_time_intervals[inv]['date_order']
+        #     prd_qty_rand = self._get_max_doc_lines_random(minimo=1, maximo=self.test_max_prd)
+        #     vals_products =self._get_random_values(product_ids.ids, prd_qty_rand, model='product')
+        #     user_cashier_id = user_cashier_ids.filtered(lambda p: p.id == vals_user_cashiers[inv])
+        #     customer_id = partner_ids.filtered(lambda p: p.id == vals_partners[inv])
+        #     # partner_ids -=customer_id
+        #     kwargs.update({
+        #         'partner_id': customer_id.id,
+        #         'business_name': customer_id.name.upper(),
+        #         'vat': customer_id.vat,
+        #         'user_id': user_cashier_id.id,
+        #         'create_date': date_time,
+        #         'date_order': date_time
+        #     })
+        #     order_vals = self._prepare_sale_order(**kwargs)
+        #     order_vals.update(predefine)
+        #     detail = []
+        #     for prd in product_ids.filtered(lambda x: x.id in vals_products):
+        #         qty_rand = self._get_max_qty_product_random()
+        #         price_unit = self._get_max_price_unit_random()
+        #         discount = 0.0
+        #         prd_vals = {'product_id': prd.id,
+        #                     'product_name': prd.name,
+        #                     'price_unit': price_unit,
+        #                     'product_uom_qty': qty_rand if prd.type != 'service' else 1,
+        #                     'company_id': self.company_id.id}
+        #         line_vals = self._prepare_order_lines(**prd_vals)
+        #         # detail.append(line_vals)
+        #         # -print('----->>>>\n\n lines_prd::->', line_vals)
+        #         detail.append(line_vals)
+        #
+        #     order_vals['order_line'] = [(0, 0, line) for line in detail]
+        #     time.sleep(0.1)
+        #     job_orders.append(order_vals)
+        #     # _logger.info("\n\n Order Nro: %s \n\n" % order_vals)
+        #     # sale_order_lines.append(order)
+        # max_result = 30
+        # index_so = int(len(job_orders) / max_result)
+        # priority = 4
+        # for x in range(0, index_so):
+        #     order_values = job_orders[start_index:start_index+max_result]
+        #     if not order_values:
+        #         continue
+        #     start_index += max_result
+        #     self.with_delay(priority=priority, description="Proceso masivo de reg. de pedidos", eta=10).action_generate_batch_orders(order_values, date_time)
+        #     priority += 2
+
+    def action_process_options(self):
+        priority = 10
+        self.with_delay(priority=priority, description="Start proceso masivo de reg. de pedidos",
+                        eta=10)._process_queue_jobs()
+        return True
+
+    def _process_queue_jobs(self, after_to=30):
+        remaining_qty = self.test_qty_orders
+        start_event = self.start_event.date()
+        start_time = self.test_start_time
+        date_time = self._get_date_time_order(start_event, start_time)
+        interval_save = self.test_save_interval if self.test_qty_invoice > 50 else self.test_qty_invoice
+        commit_intervals = self._get_intervals(remaining_qty, interval_save)
+        params = {'ctx_own_prd_price': False}
+        factor = 1.2
+        if remaining_qty <= 10:
+            factor = 1.5
+        elif remaining_qty <= 30:
+            factor = 1.6
+        elif remaining_qty <= 50:
+            factor = 1.7
+        elif remaining_qty <= 200:
+            factor = 1.8
+        limit = int(remaining_qty * factor)
+        order_vals = self.get_lazy_random_orders(remaining_qty, limit=limit, **params)
+        order_ids = []
+        priority = 10
+        for order in order_vals:
+            order_ids.append(order)
+            if len(order_ids) >= 50:
+                self.with_delay(priority=priority, description="Proceso masivo de reg. de pedidos",
+                                eta=after_to).action_generate_batch_orders(order_ids, date_time)
+                order_ids = []
+                priority += 2
+        if order_ids:
+            self.with_delay(priority=priority, description="Proceso masivo de reg. de pedidos",
+                            eta=after_to).action_generate_batch_orders(order_ids, date_time)
+
+    def get_lazy_random_orders(self,qty=1, limit=10,**kwargs):
+        yield from self._get_random_orders(qty=qty, limit=limit, **kwargs)
+
+    def _get_random_orders(self, qty=1, limit=10, **kwargs):
+        max_index = qty
+        predefine = self._get_predefine_header()
+        if not kwargs:
+            kwargs = {}
+        ctx = dict(self.env.context)
+        ctx.update(**kwargs)
+        max_index = self.test_qty_orders
+        qty_users = len(self.user_ids) * max_index + int(max_index / 2)
+        partner_ids, product_ids = self._get_data_for_testing(qty=qty_users)
+        user_cashier_ids = self.user_ids
+        remaining_qty = max_index
+        vals_partners = []
+        vals_partners += self._get_random_values(partner_ids.ids, remaining_qty)
+
+        vals_user_cashiers = self._get_random_values(user_cashier_ids.ids, remaining_qty)
         time_vals = {
             'order_qty': self.test_qty_orders
         }
         date_time_intervals = self._get_period_date_orders(**time_vals)
-        # order_ids = self.env['sale.order']
-        start_index = 0
-        job_orders = []
+        order_values = []
         for inv in range(0, max_index):
             kwargs = predefine
             date_time = date_time_intervals[inv]['date_order']
@@ -142,19 +253,8 @@ class SaleOrderDemoWizard(models.TransientModel):
 
             order_vals['order_line'] = [(0, 0, line) for line in detail]
             time.sleep(0.1)
-            job_orders.append(order_vals)
-            # _logger.info("\n\n Order Nro: %s \n\n" % order_vals)
-            # sale_order_lines.append(order)
-        max_result = 30
-        index_so = int(len(job_orders) / max_result)
-        priority = 4
-        for x in range(0, index_so):
-            order_values = job_orders[start_index:start_index+max_result]
-            if not order_values:
-                continue
-            start_index += max_result
-            self.with_delay(priority=priority, description="Proceso masivo de reg. de pedidos", eta=10).action_generate_batch_orders(order_values, date_time)
-            priority += 2
+            order_values.append(order_vals)
+        return order_values
 
     def action_generate_batch_orders(self, order_values, date_time):
         order_ids = self.env['sale.order'].sudo().create(order_values)
@@ -260,18 +360,38 @@ class SaleOrderDemoWizard(models.TransientModel):
         max_orders_day = kwargs.get('max_orders', self.test_max_orders_per_day)
         interval_orders = kwargs.get('interval_orders', self.test_interval_orders_per_day)
         # date_time = tcp_timeLong(order_date, order_time, self.env.user.tz)
-        order_end_date = kwargs.get('order_end_date', self.end_event)
-        order_end_time = kwargs.get('order_end_time', self.test_end_time)
+        tz = self.user_ids[0].partner_id.tz or self.env.user.partner_id.tz
         order_start_date = kwargs.get('order_start_date', self.start_event)
         order_start_time = kwargs.get('order_start_time', self.test_start_time)
         order_qty = kwargs.get('order_qty', self.test_qty_orders)
+        order_end_date = kwargs.get('order_end_date', self.end_event)
+        order_end_time = kwargs.get('order_end_time', self.test_end_time)
+        interval_start = fn_time_long(order_start_date, order_start_time,tz_str=tz)
+        interval_end = fn_time_long(order_end_date, order_end_time, tz_str=tz)
+
         stop_order = False
         index_date = order_start_date
         index_qty = 0
         order_date_vals = []
-        tz = self.user_ids[0].partner_id.tz or self.env.user.partner_id.tz
+
         if index_date.weekday == 6:
             index_date = (order_start_date + timedelta(days=1))
+        interval_days = []
+        interval_date_start = interval_start.date()
+        interval_date_end = interval_end.date()
+        while interval_date_start <= interval_date_end:
+            interval_days.append(interval_date_start)
+            interval_date_start += timedelta(days=1)
+        interval_create_orders = self._get_intervals(len(interval_days), interval_orders)
+        # for index_order in interval_create_orders:
+        #     order_date = interval_days[index_order-1]
+        #     qty_orders = self.test_qty_orders
+        #     period_start_order = fn_time_long(order_date, order_start_time,tz_str=tz)
+        #     period_end_order = fn_time_long(order_date, order_end_time, tz_str=tz)
+        #     while qty_orders >0:
+        #
+        #         period_start_order += timedelta(minutes=20)
+        #         qty_orders -=1
         while not stop_order:
             qty_day = random.randint(1, max_orders_day)
             if index_qty + qty_day > order_qty:
@@ -282,7 +402,7 @@ class SaleOrderDemoWizard(models.TransientModel):
             for it in range(0, qty_day):
                 # ndigit = random.randint(order_start_time*100, order_end_time*100)
                 time_so.append(nro)
-                time_int_so = random.randrange(order_start_time * 100, order_end_time * 100, 20)
+                time_int_so = random.randrange(int(order_start_time * 100), int(order_end_time * 100), 20)
                 nro = round(time_int_so / 100.0, 2)
 
             time_so.sort()
