@@ -1,0 +1,22 @@
+@media print {
+ .sidebar {
+    display: none;
+  }
+  @page {
+    margin: 0;
+    size: letter landscape;
+  }
+   body {-webkit-print-color-adjust: exact;}
+    a[href*='//']:after {
+        content:" (" attr(href) ") ";
+        color: $primary;
+    }
+    a:after {
+        content:" (" attr(href) ") ";
+        color: $primary;
+    }
+}
+
+@media print and (min-width:4in) and (max-width: 6in) { /* index card styling */ }
+@media print and (min-width:7in) and (max-height: 11in) { /* letter-size styling */ }
+@media print and (min-width:7in) and (min-height: 13in) { /* legal-size styling */ }

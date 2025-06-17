@@ -1,0 +1,241 @@
+/*
+.page.container {
+  height: 100%;
+  margin: 0 auto;
+}
+.page.container.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+*/
+/*.box .row {
+  border: 1px solid black;
+}*//*
+
+.page.container.box .header_page.row {
+  flex: 0 1 auto;
+}
+.page.container.box .article_page.row {
+  flex: 1 1 auto;
+}
+.page.container.box .footer_page.row {
+  flex: 0 1 auto;
+}*/
+/*.invoice_box {
+  display: -webkit-box;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  height: 100%;
+}*/
+/* version donde imprime pero descentrado igual que html
+@page {
+    margin: 1cm;
+    size: letter landscape
+}
+.page .invoice_box {
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	flex-direction: column;
+    align-items: stretch;
+    size: landscape;
+    height: 320mm;
+}
+.page .invoice_box .header_item {
+	 border: solid 1px green;
+	 -webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 0 1 auto;
+}
+.page .invoice_box .contain_item {
+	 flex: 1 1 auto;
+    -webkit-box-flex: 1;
+	-webkit-flex: 1;
+	border: dashed 1px blue;
+}
+.page .invoice_box .footer_item {
+	border: solid 1px red;
+	 -webkit-box-flex: 0;
+	-webkit-flex: 1;
+	 flex: 0 1 auto;
+}
+*/
+
+
+/* Fix wkhtmltopdf compatibility with BS tables borders *//*
+
+*/
+/* Requires cellspacing="0" on table to prevent spacing *//*
+
+table {
+	border-collapse: separate !important;
+}
+th, td {
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}*/
+
+
+.invoice_box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  flex-flow: column;
+  align-items: stretch;
+ /* width: 195mm;*/
+  height: 320mm !default;
+    page-break-after:always !important;
+    align-content: stretch;
+   /* border: solid 1px yellow;*/
+    -webkit-box-orient: vertical;
+}
+.invoice_box .header_item {
+	/* border: solid 1px green;*/
+	 -webkit-box-flex: 0;
+	-webkit-flex: 1;
+	flex: 0 1 auto;
+}
+.invoice_box .contain_item {
+   flex: 1 1 auto;
+    -webkit-box-flex: 1;
+	-webkit-flex: 1;
+	/*border: dashed 1px blue;*/
+}
+.invoice_box .footer_item {
+	/*border: solid 1px red;*/
+	 -webkit-box-flex: 1;
+	-webkit-flex: 0;
+	 flex: 0 1 auto;
+}
+
+@page {
+size: letter portrait;
+margin: 0;
+padding: 0;
+}
+@media print {
+ body {-webkit-print-color-adjust: exact;}
+   /* size: letter portrait; */
+  .invoice_box {
+    margin: 0;
+    padding: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: 320mm;
+    height: 320mm;
+    max-height: 320mm;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+
+   .d-print-none {
+        display: none !important;
+    }
+
+    .d-print-inline {
+        display: inline !important;
+    }
+
+    .d-print-inline-block {
+        display: inline-block !important;
+    }
+
+    .d-print-block {
+        display: block !important;
+    }
+
+    .d-print-table {
+        display: table !important;
+    }
+
+    .d-print-table-row {
+        display: table-row !important;
+    }
+
+    .d-print-table-cell {
+        display: table-cell !important;
+    }
+
+    .d-print-flex {
+        display: -webkit-box !important;
+        display: -webkit-flex !important;
+        display: flex !important;
+    }
+
+    .d-print-inline-flex {
+        display: -webkit-inline-box !important;
+        display: -webkit-inline-flex !important;
+        display: inline-flex !important;
+    }
+}
+
+/*
+@page {
+  size: letter;
+  margin: 0;
+}
+*/
+
+/*@media print {
+   .invoice_box {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+}*/
+/*
+@media print {
+    .d-print-none {
+        display: none !important;
+    }
+
+    .d-print-inline {
+        display: inline !important;
+    }
+
+    .d-print-inline-block {
+        display: inline-block !important;
+    }
+
+    .d-print-block {
+        display: block !important;
+    }
+
+    .d-print-table {
+        display: table !important;
+    }
+
+    .d-print-table-row {
+        display: table-row !important;
+    }
+
+    .d-print-table-cell {
+        display: table-cell !important;
+    }
+
+    .d-print-flex {
+        display: -webkit-box !important;
+        display: -webkit-flex !important;
+        display: flex !important;
+    }
+
+    .d-print-inline-flex {
+        display: -webkit-inline-box !important;
+        display: -webkit-inline-flex !important;
+        display: inline-flex !important;
+    }
+}*/

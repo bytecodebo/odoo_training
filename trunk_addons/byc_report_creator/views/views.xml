@@ -1,0 +1,177 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="report_definition_form_view">
+            <field name="name">view.report.definition.form</field>
+            <field name="model">report.definition</field>
+            <field name="arch" type="xml">
+                <form string="Report Definition">
+                    <field name="active" invisible="1"/>
+                    <sheet>
+                        <div class="oe_button_box">
+                            <button name="test_generate_report" class="oe_stat_button" type="object" icon="fa-cog icon"
+                                    string="Test Query"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="export_as" required="1"/>
+                                <field name="report_paperformat_id"
+                                    attrs="{'invisible': [('export_as', '!=', 'pdf')]}"/>
+                            </group>
+                            <group>
+                                <field name="noupdate"/>
+                                <field name="template_id"
+                                       attrs="{'invisible': [('export_as', '!=', 'pdf')],'required': [('export_as', '=', 'pdf')]}"/>
+                            </group>
+                        </group>
+                        <group colspan="4">
+                             <label for="export_fields" string="Export Fields :"/>
+                                <field name="export_fields" class="text-break"
+                                       nolabel="1"
+                               placeholder="export fields for example ['name','job','phone']"
+                               required="1"/>
+                        </group>
+                        <group>
+                        	<group>
+                                <field name="rename_fields"/>
+                        	</group>
+                        	<group>
+
+                        	</group>
+                        </group>
+                        <group colspan="4" attrs="{'invisible': [('rename_fields', '=', False)]}">
+                             <label for="export_fields" string="Export Fields :"/>
+                                <field name="new_name_fields" class="text-break"
+                                       nolabel="1"
+                               placeholder="Change name fields in order of original name fields for example ['Nro','Business Name','Phone']"
+                               attrs="{'required': [('rename_fields','=', True)]}"/>
+                        </group>
+                        <notebook>
+                            <page string="Query" name="query">
+                                <field name="query"
+                                       placeholder="put your query here for example select name, job, phone from employee"
+                                       required="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="report_definition_tree_view">
+            <field name="name">report.definition.tree</field>
+            <field name="model">report.definition</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Report Definitions">
+                    <field name="name"/>
+                    <field name="export_as"/>
+                    <field name="query" optional="hide"
+                           groups="base.group_no_one"/>
+                    <field name="export_fields" optional="hide"
+                           groups="base.group_no_one"/>
+                    <field name="report_paperformat_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_report_definition_tree_view">
+            <field name="name">Report Definition</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">report.definition</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="report_result_form_view">
+            <field name="name">report.result.form</field>
+            <field name="model">report.result</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="report result" create="false" edit="false">
+                    <sheet>
+                        <group>
+                            <field name="date_generated" string="Date"/>
+                            <field name="name"/>
+                            <field name="file_report_name"/>
+                            <field name="path_file" groups="base.group_no_one"/>
+                            <field name="attachment_file" groups="base.group_no_one"/>
+                            <button type="object" name="download_report">Download</button>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="report_result_tree_view">
+            <field name="name">report.result.tree</field>
+            <field name="model">report.result</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Report Results" create="false" edit="false" default_order="date_generated desc">
+                    <field name="date_generated" string="Date"/>
+                    <field name="name"/>
+                    <field name="file_report_name"/>
+                    <field name="path_file" groups="base.group_no_one" invisible="1"/>
+                    <field name="attachment_file"/>
+                    <button type="object" name="download_report"
+                            string="Download"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window"
+                id="action_report_result_tree_view">
+            <field name="name">Report Result</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">report.result</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="report_template_form_view">
+            <field name="name">report.template.form</field>
+            <field name="model">report.template</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="report_template">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <notebook>
+                            <page name="header" string="Header">
+                                <field name="header"/>
+                            </page>
+                            <page name="body" string="Body">
+                                <field name="body"/>
+                            </page>
+                            <page name="footer" string="Footer">
+                                <field name="footer"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="report_template_tree_view">
+            <field name="name">report.template.tree</field>
+            <field name="model">report.template</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="report_template">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window"
+                id="action_report_template_tree_view">
+            <field name="name">Report Template</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">report.template</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <!-- <template id="report_sale_order_inherit_res_company" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[@t-attf-class='article o_report_layout_standard o_company_#{company.id}_layout']" position="inside">
+                <div t-if ="company.watermark_option == 'backgroundimage'" style="opacity: 0.50;">
+                    <img t-if="company.upload_image" t-att-src="'data:image/png;base64,%s' % to_text(company.upload_image)" style="top:400px;position:absolute;width:100%; opacity: 0.50;height:auto;"/>
+                </div>
+
+                <div t-if ="company.watermark_option == 'logo'" style="opacity: 0.50;">
+                    <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="top:400px;position:absolute;width:100%; opacity: 0.50;height:auto;"/>
+                </div>
+
+                <div t-if = "company.watermark_option == 'name'">
+                    <t t-if="company.rotate_image == True and not company.font_size and not company.font_color">
+                        <span t-field="company.name" t-att-style="'transform:rotate(' + company.rotate_angle + ' deg); -webkit-transform:rotate(' + company.rotate_angle + 'deg); top:400px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                    </t>
+                    <t t-if="company.rotate_image == True and company.font_size and not company.font_color">
+                        <span t-field="company.name" t-att-style="'transform:rotate(' + company.rotate_angle + ' deg); -webkit-transform:rotate(' + company.rotate_angle + 'deg);font-size:'+ company.font_size + 'px;top:500px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                    </t>
+                    <t t-if="company.rotate_image == True and company.font_color and not company.font_size">
+                        <span t-field="company.name" t-att-style="'transform:rotate(' + company.rotate_angle + ' deg); -webkit-transform:rotate(' + company.rotate_angle + 'deg);color: '+ company.font_color +'; top:400px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                    </t>
+                    <t t-if="company.rotate_image == True and company.font_size and company.font_color">
+                        <span t-field="company.name" t-att-style="'transform:rotate(' + company.rotate_angle + ' deg); -webkit-transform:rotate(' + company.rotate_angle + 'deg);font-size: '+ company.font_size + 'px; color: '+ company.font_color +';top:400px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                    </t>
+
+                    <t t-if="company.rotate_image == False">
+                        <t t-if="company.font_size and not company.font_color">
+                            <span t-field="company.name" t-att-style="'font-size:' + company.font_size + 'px;''top:400px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                        </t>
+                        <t t-if="company.font_color and not company.font_size">
+                            <span t-field="company.name" t-att-style="'color:' + company.font_color + ';' 'top:400px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                        </t>
+                        <t t-if="company.font_size and company.font_color">
+                            <span t-field="company.name" t-att-style="'font-size:' + company.font_size + 'px;' 'color:' + company.font_color + ';' 'top:400px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                        </t>
+                    </t>
+                </div>
+        </xpath>
+    </template>-->
+
+   <!--  <template id="bantic_external_layout_watermark" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[hasclass('page')]" position="inside">
+            <t t-if="not show_watermark" t-set="show_watermark" t-value="True"/>
+            <t t-if="show_watermark and rep_model['watermark'] and rep_model['watermark_option'] == 'text'">
+                <t t-set="watermark_txt" t-value="rep_model['watermark_text']"/>
+                <div>
+                    <t t-if="rep_model['rotate_image'] == True and not rep_model['font_size'] and not rep_model['font_color']">
+                        <span t-esc="watermark_txt" t-att-style="'transform:rotate(' + rep_model['rotate_angle'] + ' deg); -webkit-transform:rotate(' + rep_model['rotate_angle'] + 'deg); top:400px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                    </t>
+                    <t t-if="rep_model['rotate_image'] == True and rep_model['font_size'] and not rep_model['font_color']">
+                        <span t-esc="watermark_txt" t-att-style="'transform:rotate(' + rep_model['rotate_angle'] + ' deg); -webkit-transform:rotate(' + rep_model['rotate_angle'] + 'deg);font-size:'+ rep_model['font_size'] + 'px;top:500px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                    </t>
+                    <t t-if="rep_model['rotate_image'] == True and rep_model['font_color'] and not rep_model['font_size']">
+                        <span t-esc="watermark_txt" t-att-style="'transform:rotate(' + rep_model['rotate_angle'] + ' deg); -webkit-transform:rotate(' + rep_model['rotate_angle'] + 'deg);color: '+ rep_model['font_color'] +'; top:400px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                    </t>
+                    <t t-if="rep_model['rotate_image'] == True and rep_model['font_size'] and rep_model['font_color']">
+                        <span t-esc="watermark_txt" t-att-style="'transform:rotate(' + rep_model['rotate_angle'] + ' deg); -webkit-transform:rotate(' + rep_model['rotate_angle'] + 'deg);font-size: '+ rep_model['font_size'] + 'px; color: '+ rep_model['font_color'] +';top:400px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                    </t>
+
+                    <t t-if="rep_model['rotate_image'] == False">
+                        <t t-if="rep_model['font_size'] and not rep_model['font_color']">
+                            <span t-esc="watermark_txt" t-att-style="'font-size:' + rep_model['font_size'] + 'px;''top:400px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                        </t>
+                        <t t-if="rep_model['font_color'] and not rep_model['font_size']">
+                            <span t-esc="watermark_txt" t-att-style="'color:' + rep_model['font_color'] + ';' 'top:400px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                        </t>
+                        <t t-if="rep_model['font_size'] and rep_model['font_color']">
+                            <span t-esc="watermark_txt" t-att-style="'font-size:' + rep_model['font_size'] + 'px;' 'color:' + rep_model['font_color'] + ';' 'top:400px;position:absolute;text-align:center;width:100%;absolute;opacity:0.25;'"/>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+    </template>-->
+</odoo>

@@ -1,0 +1,51 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+.box .row {
+  border: 1px solid black;
+}
+.box .row.header {
+  flex: 0 1 auto;
+}
+.box .row.article {
+  flex: 1 1 auto;
+}
+.box .row.footer {
+  flex: 0 1 auto;
+}
+
+/**
+.o_payslip_page_2 {
+       font-size: 0.9em !important;
+}
+.o_size_font {
+        font-size: 0.9em;
+}
+
+.o_size_font_2 {
+        font-size: 0.9em;
+}
+
+.o_size_font_3 {
+        font-size: 1.0em;
+}
+
+table.o_size_font td {
+        font-size: 0.9em;
+        padding: 0.5%;
+      }
+
+tr.o_black_border_top td {
+        border-top: 1px black solid !important;
+       }
+tr.o_black_border_bottom td {
+        border-bottom: 1px black solid !important;
+}
+**/

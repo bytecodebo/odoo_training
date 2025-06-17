@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="byc_act_report_inherit_view" model="ir.ui.view">
+            <field name="name">btc.ir.actions.report.inherit</field>
+            <field name="model">ir.actions.report</field>
+            <field name="inherit_id" ref="reports_with_watermark.act_report_xml_view"/>
+            <field name="arch" type="xml">
+                <field name="paperformat_id" position="after">
+                    <field name="print_header"
+                       attrs="{'invisible':[('report_type','not in',['qweb-pdf'])]}"/>
+                    <field name="print_footer"
+                       attrs="{'invisible':[('report_type','not in',['qweb-pdf'])]}"/>
+                    <field name="render_pdfkit"
+                       attrs="{'invisible':[('report_type','not in',['qweb-pdf'])]}"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

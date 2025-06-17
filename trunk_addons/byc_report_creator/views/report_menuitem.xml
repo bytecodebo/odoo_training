@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- This Menu Item must have a parent and an action -->
+
+
+        <menuitem id="rc_menu_base_layout_theme_rc"
+                  parent="base.reporting_menuitem"
+                  groups="base.group_no_one"
+                  action="action_base_document_layout_configurator_report_creator"
+                  sequence="20"/>
+
+       <!--  <menuitem
+            id="menu_byc_base_tools"
+            name="Tools"
+            parent="base.menu_administration"
+            sequence="6"/>-->
+    </data>
+</odoo>

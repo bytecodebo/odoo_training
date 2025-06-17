@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acc_man_report_template,report.template man,model_report_template,group_report_creator_manager,1,1,1,1
+acc_man_report_result,report.result man,model_report_result,group_report_creator_manager,1,1,1,1
+acc_man_report_definition,report.definition man,model_report_definition,group_report_creator_manager,1,1,1,1
+acc_man_wizard_get_report,wizard.get.report man,model_wizard_get_report,group_report_creator_manager,1,1,1,1

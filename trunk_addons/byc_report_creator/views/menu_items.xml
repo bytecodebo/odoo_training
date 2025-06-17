@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <menuitem id="byc_report_creator_menu"
+                  name="Report Creator"
+                  web_icon="byc_report_creator,static/description/icon.png"
+                  groups="group_report_creator_user"
+        />
+
+      <!--  <menuitem id="report_creator_menu_get_report"
+                  parent="byc_report_creator.report_creator_menu"
+                  sequence="3"
+                  groups="group_report_creator_user"
+                  action="wizard_get_report"
+        />-->
+
+        <menuitem id="report_creator_menu_definition"
+                  parent="byc_report_creator_menu"
+                  sequence="3"
+                  action="action_report_definition_tree_view"
+        />
+
+        <menuitem id="report_result_menu"
+                  name="Results"
+                  sequence="10"
+                  parent="byc_report_creator_menu"
+                  action="action_report_result_tree_view"/>
+
+        <menuitem id="report_creator_settings_menu"
+                  name="Configuration"
+                  sequence="15"
+                  parent="byc_report_creator_menu"/>
+
+        <menuitem id="report_template_menu"
+                  name="Report Templates"
+                  parent="report_creator_settings_menu"
+                  sequence="20"
+                  action="action_report_template_tree_view"/>
+
+        <menuitem id="report_creator_base_menu"
+                  parent="report_creator_settings_menu"
+                  sequence="25"
+                  action="base.ir_action_report"/>
+
+   <menuitem id="wizard_get_report"
+			name="Generate Report"
+				  parent="byc_report_creator_menu"
+					action="act_wizard_get_report"
+				  sequence="5"/>
+</odoo>

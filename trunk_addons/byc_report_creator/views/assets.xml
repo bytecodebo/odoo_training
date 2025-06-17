@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_paper_format_pdf">
+        <link href="/byc_report_creator/static/src/scss/fonts.scss" type="text/scss" rel="stylesheet"/>
+        <link href="/byc_report_creator/static/src/css/reset_yahoo.min.css" type="text/css" rel="stylesheet"/>
+    </template>
+
+     <template id="assets_backend" name="tcp report creator assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link href="/byc_report_creator/static/src/scss/fonts.scss" type="text/scss" rel="stylesheet"/>
+            <link rel="stylesheet" type="text/scss" href="/byc_report_creator/static/src/scss/variables.scss"/>
+        </xpath>
+    </template>
+    <template id="assets_common" inherit_id="web.assets_common" name="Tcp Report Creator Assets Common">
+         <xpath expr="//script[last()]" position="after">
+             <link href="/byc_report_creator/static/src/scss/fonts.scss" type="text/scss" rel="stylesheet"/>
+           <link rel="stylesheet" type="text/scss" href="/byc_report_creator/static/src/scss/variables.scss"/>
+        </xpath>
+    </template>
+
+    <template id="report_assets_common" inherit_id="web.report_assets_common"
+              name="Report Creator Report Assets Common">
+          <xpath expr="." position="inside">
+              <link href="/byc_report_creator/static/src/scss/fonts.scss" type="text/scss" rel="stylesheet"/>
+           <link rel="stylesheet" type="text/scss" href="/byc_report_creator/static/src/scss/variables.scss"/>
+        </xpath>
+    </template>
+</odoo>

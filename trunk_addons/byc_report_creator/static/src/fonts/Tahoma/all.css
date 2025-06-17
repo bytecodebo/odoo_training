@@ -1,0 +1,32 @@
+@font-face
+{
+    font-family: 'Tahoma Regular font';
+  src: url('Tahoma-Regular-font.eot');
+      url('Tahoma-Regular-font.eot?#') format('embedded-opentype'),
+      url('Tahoma-Regular-font.woff') format('woff'),
+      url('Tahoma-Regular-font.ttf') format('truetype');
+}
+@font-face
+{
+    font-family: 'TAHOMA_0';
+  src: url('TAHOMA_0.eot');
+      url('TAHOMA_0.eot?#') format('embedded-opentype'),
+      url('TAHOMA_0.woff') format('woff'),
+      url('TAHOMA_0.ttf') format('truetype');
+}
+@font-face
+{
+    font-family: 'TAHOMAB0';
+  src: url('TAHOMAB0.eot');
+      url('TAHOMAB0.eot?#') format('embedded-opentype'),
+      url('TAHOMAB0.woff') format('woff'),
+      url('TAHOMAB0.ttf') format('truetype');
+}
+@font-face
+{
+    font-family: 'TAHOMABD';
+  src: url('TAHOMABD.eot');
+      url('TAHOMABD.eot?#') format('embedded-opentype'),
+      url('TAHOMABD.woff') format('woff'),
+      url('TAHOMABD.ttf') format('truetype');
+}

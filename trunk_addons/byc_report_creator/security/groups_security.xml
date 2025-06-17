@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <!--  <record model="res.groups" id="group_trc_basic_user">
+            <field name="name">Users level: 0</field>
+            <field name="category_id" ref="byc_report_creator.ir_module_category_base_main"/>
+            <field name="implied_ids" eval="[(4, ref('byc_setting_tecorp.group_byc_user'))]"/>
+        </record>-->
+
+       <!-- <record id="default_byc_user" model="res.users">
+            <field name="groups_id" eval="[(5,0)] + [(4,ref('byc_setting_tecorp.group_byc_tech_user'))]"/>
+        </record>-->
+       <record id="report_creator_category" model="ir.module.category">
+            <field name="name">Report Creator Module</field>
+            <field name="sequence">18</field>
+        </record>
+        <record id="group_report_creator_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="comment">Can generate reports assign to him/her</field>
+            <field name="category_id" ref="report_creator_category"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <!-- <field name="implied_ids" eval="[(4, ref('byc_setting_tecorp.group_byc_tech_user'))]"/>-->
+        <record id="group_report_supervisor" model="res.groups">
+            <field name="name">Supervisor</field>
+            <field name="comment">Can generate reports assign to him/her and show User Reports</field>
+            <field name="category_id" ref="report_creator_category"/>
+            <field name="implied_ids" eval="[(4, ref('group_report_creator_user'))]"/>
+        </record>
+        <record id="group_report_creator_manager" model="res.groups">
+            <field name="name">Report Manager</field>
+            <field name="comment">Can create/edit reports</field>
+            <field name="category_id" ref="report_creator_category"/>
+             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="group_report_technical_manager" model="res.groups">
+            <field name="name">Technical Manager</field>
+            <field name="comment">It is the administrator of the module</field>
+            <field name="category_id" ref="report_creator_category"/>
+            <field name="implied_ids" eval="[(4, ref('group_report_creator_manager'))]"/>
+        </record>
+       <!--  <record model="res.groups" id="base.group_user">
+            <field name="implied_ids" eval="[(4, ref('group_report_technical_manager'))]"/>
+        </record>-->
+    </data>
+</odoo>

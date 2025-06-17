@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <template id="report_assets_common" name="tecorp report assets" inherit_id="web.report_assets_common">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/byc_report_creator/static/src/scss/variables.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/web/static/src/scss/report.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/byc_report_creator/static/src/scss/layout_standard_advance.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/web/static/src/scss/layout_background.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/byc_report_creator/static/src/scss/layout_boxed_advance.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/web/static/src/scss/layout_clean.scss"/>
+        </xpath>
+     </template>-->
+
+    <template id="minimal_layout_advance">
+        &lt;!DOCTYPE html&gt;
+        <t t-raw="'&lt;base href=%s&gt;' % base_url"/>
+        <html>
+            <head>
+                <meta charset="utf-8"/>
+                <link href="/byc_report_creator/static/src/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+                <link href="/byc_report_creator/static/src/css/reset.min.css" type="text/css" rel="stylesheet"/>
+                <link href="/byc_report_creator/static/src/css/paper_style.css" type="text/css" rel="stylesheet"/>
+                <t t-set="subst_needed" t-value="subst is True"/>
+                <t t-if="subst_needed">
+                    <script>
+                        function subst() {
+                        var vars = {};
+                        var x = document.location.search.substring(1).split('&amp;');
+                        for (var i in x) {
+                        var z = x[i].split('=', 2);
+                        vars[z[0]] = unescape(z[1]);
+                        }
+                        var x = ['sitepage', 'sitepages', 'section', 'subsection', 'subsubsection'];
+                        var z = {'sitepage': 'page', 'sitepages': 'topage'};
+                        for (var i in x) {
+                        var y = document.getElementsByClassName(z[x[i]] || x[i])
+                        for (var j=0; j&lt;y.length; ++j)
+                        y[j].textContent = vars[x[i]];
+                        }
+
+                        var index = vars['webpage'].split('.', 4)[3];
+                        var header = document.getElementById('minimal_layout_report_headers');
+                        if(header !== null){
+                        var companyHeader = header.children[index];
+                        header.textContent = '';
+                        header.appendChild(companyHeader);
+                        }
+                        var footer = document.getElementById('minimal_layout_report_footers');
+                        if(footer !== null){
+                        var companyFooter = footer.children[index];
+                        footer.textContent = '';
+                        footer.appendChild(companyFooter);
+                        }
+                        }
+                    </script>
+                </t>
+            </head>
+            <body class="container" t-att-onload="subst_needed and 'subst()'">
+                <t t-raw="body"/>
+            </body>
+        </html>
+    </template>
+
+    <!-- External layouts styles -->
+
+    <!-- <template id="external_layout_boxed_tcp" inherit_id="web.external_layout_boxed">
+        <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
+            <attribute name="t-if">print_h</attribute>
+        </div>
+        <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout" position="attributes">
+            <attribute name="t-if">print_f</attribute>
+        </div>
+        <xpath expr="//div[contains(@t-attf-class, 'o_report_layout_boxed')]/div[hasclass('pt-5')]"
+               position="replace">
+        </xpath>
+    </template>-->
+
+    <template id="external_layout_boxed_advance">
+        <div t-if="print_h" t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <div class="o_boxed_header">
+               <div class="row mb8">
+                    <div class="col-6">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+                    </div>
+                    <div class="col-6 text-right mb4">
+                        <h4 class="mt0" t-field="company.report_header"/>
+                        <div name="company_address" class="float-right mb4">
+                            <span class="company_address" t-field="company.partner_id"
+                                  t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div t-attf-class="article o_report_layout_boxed_tecorp o_company_#{company.id}_layout"
+             t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"
+             t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-raw="0"/>
+
+        </div>
+
+        <div t-if="print_f not in [False, '0', 0]" t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
+            <div class="text-center">
+               <ul class="list-inline">
+                    <li t-if="company.phone" class="list-inline-item"><span class="o_force_ltr"
+                                                                            t-field="company.phone"/></li>
+                    <li t-if="company.email" class="list-inline-item"><span t-field="company.email"/></li>
+                    <li t-if="company.website" class="list-inline-item"><span t-field="company.website"/></li>
+                    <li t-if="company.vat" class="list-inline-item"><t t-esc="company.country_id.vat_label or 'NIT'"/>
+                        : <span t-field="company.vat"/></li>
+                </ul>
+                <div t-field="company.report_footer"/>
+                <div t-if="report_type == 'pdf'">
+                    Page: <span class="page"/> / <span class="topage"/>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tecorp_external_layout" inherit_id="web.external_layout">
+        <xpath expr="//t[@t-if='company.external_report_layout_id']" position="before">
+            <t t-if="not print_h" t-set="print_h" t-value="True if print_header and print_header =='1' else False"/>
+            <t t-if="not print_f" t-set="print_f" t-value="True if print_footer and print_footer == '1' else False"/>
+        </xpath>
+    </template>
+
+     <template id="tecorp_external_layout_standard" inherit_id="web.external_layout_standard">
+        <div t-attf-class="header o_company_#{company.id}_layout" position="attributes">
+            <attribute name="t-if">print_h</attribute>
+         </div>
+
+        <!-- <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout" position="attributes">
+            <attribute name="t-if">print_f</attribute>
+         </div>
+         <xpath expr="//div[contains(@t-attf-class, 'o_report_layout_standard')]/div[hasclass('pt-5')]"
+               position="attributes">
+           <attribute name="t-if">print_h</attribute>
+         </xpath>-->
+
+    </template>
+
+
+</odoo>

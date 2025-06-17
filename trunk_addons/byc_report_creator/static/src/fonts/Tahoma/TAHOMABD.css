@@ -1,0 +1,8 @@
+@font-face
+{
+    font-family: 'TAHOMABD';
+  src: url('TAHOMABD.eot');
+      url('TAHOMABD.eot?#') format('embedded-opentype'),
+      url('TAHOMABD.woff') format('woff'),
+      url('TAHOMABD.ttf') format('truetype');
+}

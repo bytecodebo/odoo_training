@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acc_supp_rpt_template,report.template.user supp,model_report_template,base.group_system,1,1,1,1
+acc_supp_rpt_result,report.result supp,model_report_result,base.group_system,1,1,1,1
+acc_supp_rpt_definition,report.definition_user supp,model_report_definition,base.group_system,1,1,1,1
+acc_supp_rpt_wz_get_report,wizard.get.report.user supp,model_wizard_get_report,base.group_system,1,1,1,1
+acc_usr_rpt_template,report.template.user usr,model_report_template,base.group_user,1,1,0,0
+acc_usr_rpt_result,report.result usr,model_report_result,base.group_user,1,1,1,0
+acc_usr_rpt_definition,report.definition_user usr,model_report_definition,base.group_user,1,1,1,0
+acc_usr_rpt_wz_get_report,wizard.get.report.user usr,model_wizard_get_report,base.group_user,1,1,1,0

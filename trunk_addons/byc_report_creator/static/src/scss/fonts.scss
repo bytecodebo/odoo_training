@@ -1,0 +1,42 @@
+// ------------------------------------------------------------------
+// Tahoma
+// ------------------------------------------------------------------
+$tahoma-font-path: '../fonts/Tahoma';
+
+@mixin tahoma-font($type, $weight, $style) {
+@font-face
+{
+    font-family: 'Tahoma Regular font';
+      src: url('#{$tahoma-font-path}/Tahoma-#{$type}-font.eot');
+        src: url('#{$tahoma-font-path}/Tahoma-#{$type}-font.eot?#iefix') format('embedded-opentype'),
+             url('#{$tahoma-font-path}/Tahoma-#{$type}-font.woff') format('woff'),
+             url('#{$tahoma-font-path}/Tahoma-#{$type}-font.ttf') format('truetype');
+        font-weight: $weight;
+        font-style: $style;
+}
+@font-face
+{
+    font-family: 'TAHOMA_#{$type}';
+    src: url('#{$lato-font-path}/TAHOMA_#{$type}.eot');
+    src: url('#{$lato-font-path}/TAHOMA_#{$type}.eot?#iefix') format('embedded-opentype'),
+             url('#{$lato-font-path}/TAHOMA_#{$type}.woff') format('woff'),
+            url('#{$lato-font-path}/TAHOMA_#{$type}.ttf') format('truetype'),
+}
+@font-face
+{
+      font-family: 'TAHOMA#{$type}';
+      src: url('#{$lato-font-path}/TAHOMA#{$type}.eot');
+      src: url('#{$lato-font-path}/TAHOMA#{$type}.eot?#iefix') format('embedded-opentype'),
+           url('#{$lato-font-path}/TAHOMA#{$type}.woff') format('woff'),
+           url('#{$lato-font-path}/TAHOMA#{$type}.ttf') format('truetype'),
+}
+@font-face
+{
+   
+      font-family: 'TAHOMA#{$type}';
+        src: url('#{$lato-font-path}/TAHOMA#{$type}.eot');
+        src: url('#{$lato-font-path}/TAHOMA#{$type}.eot?#iefix') format('embedded-opentype'),
+             url('#{$lato-font-path}/TAHOMA#{$type}.woff') format('woff'),
+             url('#{$lato-font-path}/TAHOMA#{$type}.ttf') format('truetype'),
+}
+}

@@ -1,0 +1,78 @@
+@page { margin: 0 }
+html,
+body {
+  /**height: 100%;**/
+  font-family: sans-serif; font-size:12px;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  border: 1px solid red;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+h1 { font-size:18px; }
+h2 { font-size:16px; }
+h3 { font-size:14px; }
+h4 { font-size:12px; }
+strong { font-weight:900 !important; }
+hr     { border:0; margin:0; padding:0; height:1px; color:#000; background-color:#000; }
+
+.pb_before { page-break-before:always !important; }
+.pb_after  { page-break-after:always !important; }
+.pbi_avoid { page-break-inside:avoid !important; }
+
+/**
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  page-break-after:always !important;
+} **/
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  /**position: relative;
+  box-sizing: border-box;
+  page-break-after: always;
+  margin: 0;
+  overflow: hidden;**/
+}
+.box .row {
+  border: 0px solid blue;
+}
+.box .row.header {
+  flex: 0 1 auto;
+}
+.box .row.article {
+  flex: 1 1 auto;
+}
+.box .row.footer {
+  flex: 0 1 auto;
+}
+.o_payslip_page_2 {
+       font-size: 1.0em !important;
+}
+.o_size_font {
+        font-size: 1.0em;
+}
+
+.o_size_font_2 {
+        font-size: 1.0em;
+}
+
+.o_size_font_3 {
+        font-size: 1.0em;
+}
+
+table.o_size_font td {
+        font-size: 1.0em;
+        padding: 0.5%;
+      }
+
+tr.o_black_border_top td {
+        border-top: 1px black solid !important;
+       }
+tr.o_black_border_bottom td {
+        border-bottom: 1px black solid !important;
+}

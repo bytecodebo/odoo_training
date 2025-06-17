@@ -1,0 +1,33 @@
+.o_standard_footer, .o_standard_header, .o_report_layout_standard {
+    color: $o-default-report-advance-primary-color;
+    font-size: 12px;
+}
+.o_standard_advance_footer, .o_standard_advance_header, .o_report_layout_standard_advance {
+    color: $o-default-report-advance-primary-color;
+    font-size: 12px;
+}
+.o_standard_advance_footer {
+    margin-top: 200px;
+    .list-inline-item {
+        white-space: nowrap;
+    }
+}
+
+.o_report_layout_standard_advance {
+    h2 {
+        color: $o-default-report-primary-color;
+    }
+
+    #informations strong {
+        color: $o-default-report-secondary-color;
+    }
+
+    #total strong{
+        color: $o-default-report-primary-color;
+    }
+    table {
+        thead {
+            color: $o-default-report-secondary-color;
+        }
+    }
+}
