@@ -536,7 +536,7 @@ class ReportResult(models.Model):
         css = [bootstrap_css, resetmin_css, paper_css]
 
         # configure PDF pages
-        options = None
+        options = {"enable-local-file-access": ""}
         if paper_format:
             pf = paper_format
             # options = {
@@ -558,7 +558,7 @@ class ReportResult(models.Model):
             # }
         file_data = pdfkit.from_string(result_html, False, options=options)
         # pdfkit.from_string(result_html, file_store, options=options, css=css)
-        with open(file_store + "/index.html", "w") as filetmp:
+        with open(file_store + "index.html", "w") as filetmp:
             filetmp.write(result_html)
         filetmp.close()
         return file_data, report_name
