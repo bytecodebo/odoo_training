@@ -1,7 +1,7 @@
 # Tutorial de Desarrollo de Odoo 16.0
 
 #### Clase 13
-### Creacion y Configuracion de Reportes
+### Creación y Configuración de Reportes
 
 ### Introducción
 

@@ -10,4 +10,13 @@ asi como Actas de Reuniones con el Cliente, y Acta de Entrega de los trabajos de
 
 Link de Documentos: https://onedrive.live.com/edit.aspx?resid=4D4A26FBCC41ADF1%21sc5197ce1aa464e7eb2f991e81f1c1387&migratedtospo=true&wd=target%28Odoo2016.one%7Ced77495e-7980-459d-a6d1-de4200618e52%2F%29&wdorigin=717&wdsectionfileid=4d4a26fbcc41adf1%21s2a985b21d33e42788f7c690f8b5a3203
 
+![img.png](img/img.png)
 
+![img.png](img/img_pyram.png)
+
+### Aplicaciones de Interes
+
+ - Manejo de Diagramas [Draw io](https://app.diagrams.net/)
+ - Mockups [Balsamiq](https://balsamiq.com/)
+ - Notas [OneNote](https://www.onenote.com/?public=1&wdorigin=ondcauth2&wdorigin=ondc)
+ - Apuntes [SimpleNote](https://simplenote.com/)
