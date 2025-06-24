@@ -36,4 +36,5 @@
     'demo': [
         'demo/demo.xml',
     ],
+    'post_load': 'in'
 }

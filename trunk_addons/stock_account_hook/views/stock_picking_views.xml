@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="svl_account_picking" model="ir.ui.view">
+        <field name="name">svl.picking.account</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock_account.stock_valuation_layer_picking" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='extra']//field[@name='company_id']" position="before">
+                <field name="enable_grouped_moves"
+                    groups="base.group_no_one"
+                    attrs="{'invisible': [('enable_grouped_moves', '=', False)]}" />
+                <field name="account_move_ids" string="Journal Entries"
+                    widget="many2many_tags"
+                    groups="base.group_no_one"
+                    attrs="{'invisible': [('enable_grouped_moves', '=', False)]}" />
+
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button string="Accounting Entries"
+                    type="object"
+                    name="action_view_account_moves"
+                    groups="account.group_account_invoice"
+                    class="oe_stat_button" icon="fa-dollar"
+                    attrs="{'invisible': ['|', ('state', 'not in', ['done']), ('enable_grouped_moves', '=', False)]}" />
+                <button string="Generate Entry" type="object"
+                    name="action_generate_unique_entry"
+                    class="oe_stat_button"
+                    groups="base.group_no_one"
+                    attrs="{'invisible': [('state', 'not in', ['done'])]}" />
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
