@@ -1,6 +1,6 @@
 
-from flectra import models, api, tools
-from flectra.tools.mimetypes import guess_mimetype
+from odoo import models, api, tools
+from odoo.tools.mimetypes import guess_mimetype
 import base64
 
 

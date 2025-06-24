@@ -3,7 +3,7 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 import os
-from flectra import api, models, fields
+from odoo import api, models, fields
 import base64
 
 XML_ID = "web_flectra._assets_primary_variables"

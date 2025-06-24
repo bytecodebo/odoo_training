@@ -1,6 +1,6 @@
 
 import base64
-from flectra.http import Controller, request, route
+from odoo.http import Controller, request, route
 from werkzeug.utils import redirect
 DEFAULT_IMAGE = \
     '/web_flectra/static/src/img/application-switcher-bg-dark.png'

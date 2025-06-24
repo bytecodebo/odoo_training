@@ -24,8 +24,8 @@ import re
 import uuid
 import base64
 
-from flectra import models, fields, api
-from flectra.modules import module
+from odoo import models, fields, api
+from odoo.modules import module
 
 
 class ScssEditor(models.AbstractModel):

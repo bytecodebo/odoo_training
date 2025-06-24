@@ -5,7 +5,8 @@
     "author": "FlectraHQ",
     "website": "https://flectrahq.com/",
     'company': 'FlectraHQ Inc.',
-    "depends": ['base', 'web'],
+    "depends": ['base', 'web',
+                'base_setup'],
     'auto_install': False,
     "data": [
         # 'views/style.xml',

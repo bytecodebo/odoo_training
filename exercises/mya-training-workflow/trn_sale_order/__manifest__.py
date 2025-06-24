@@ -35,6 +35,5 @@
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
-    ],
-    'post_load': 'in'
+    ]
 }

@@ -1,5 +1,5 @@
-from flectra import api, fields, models, modules, tools, _
-from flectra.osv import expression
+from odoo import api, fields, models, modules, tools, _
+from odoo.osv import expression
 
 
 class IrModuleModule(models.Model):
