@@ -45,8 +45,6 @@ PyPDF2==3.0.1
 pypng==0.20220715.0
 PyQRCode==1.2.1
 pysftp==0.2.9
-python-dateutil==2.9.0.post0
-python-stdnum==1.16
 pytz==2025.2
 qrcode==6.1
 regex==2024.11.6
