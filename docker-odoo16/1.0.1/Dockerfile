@@ -2,9 +2,7 @@ FROM odoo:16.0
 
 USER root
 
-RUN apt-get update && apt-get install -y && \
-    nano && \
-    zip
+RUN apt-get update && apt-get install -y zip
 
 COPY ./resources/requirements-advance.txt /tmp/.
 
