@@ -2,14 +2,14 @@ FROM odoo:16.0
 
 USER root
 
-RUN apt-get update && apt-get install -y \
-    nano \
+RUN apt-get update && apt-get install -y && \
+    nano && \
     zip
 
-COPY ./resources/requirements-advance.txt /opt/odoo/.
+COPY ./resources/requirements-advance.txt /tmp/.
 
 RUN pip install --upgrade pip \
-    && pip install -r /opt/odoo/requirements-advance.txt
+    && pip install -r /tmp/requirements-advance.txt
 
 RUN mkdir -p /opt/odoo/backups \
     && chown -R odoo /opt/odoo/backups
