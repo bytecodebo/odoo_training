@@ -21,3 +21,5 @@ VOLUME ["/opt/odoo/backups"]
 #ENTRYPOINT ["/entrypoint.sh"]
 
 #CMD ["odoo"]
+
+# docker build --force-rm -t robertsvx38/odoo-training:16.0.1 .

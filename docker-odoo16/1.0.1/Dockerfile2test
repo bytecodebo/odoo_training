@@ -1,0 +1,104 @@
+FROM python:3.8-slim-buster AS base
+
+USER root
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# ADD requirements.txt .
+RUN pip install --upgrade pip
+RUN build_deps=" \
+        build-essential \
+        libfreetype6-dev \
+        libfribidi-dev \
+        libghc-zlib-dev \
+        libharfbuzz-dev \
+        libjpeg-dev \
+        liblcms2-dev \
+        libldap2-dev \
+        libopenjp2-7-dev \
+        libpq-dev \
+        libsasl2-dev \
+        libtiff5-dev \
+        libwebp-dev \
+        libxml2-dev \
+        libxslt-dev \
+        tcl-dev \
+        tk-dev \
+        zlib1g-dev \
+    " \
+    apt-get update && apt-get install -yqq --no-install-recommends $build_deps \
+    && apt-get purge -yqq build-essential '*-dev' \
+    && apt-get -yqq autoremove \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+CMD ["python3"]
+
+# FROM debian:buster-slim as builder
+
+# USER root
+# COPY . .
+# SHELL ["/bin/bash", "-xo", "pipefail", "-c"]
+
+# ADD requirements.txt .
+
+# RUN apt-get update && apt-get install -y --no-install-recommends \
+#     python-pip \
+#     && pip install -r requirements.txt \
+#     && rm -rf /var/lib/apt/lists/*
+
+# RUN apt-get update -y && \
+#     apt-get autoremove -y && \
+#     apt-get install -y --no-install-recommends \
+#         python3-pandas \
+#         && pip install -r requirements.txt \
+#         && rm -rf /var/lib/apt/lists/*
+
+# RUN apt-get update && apt-get install -y --no-install-recommends \
+#     python3.8 \
+#     python3-pip \
+#     && apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
+
+# RUN pip3 install -r requirements.txt
+
+FROM odoo:14.0
+
+# LABEL MAINTAINER Roberto Saavedra <roberto.saavedra@banticsoftware.com>
+SHELL ["/bin/bash", "-xo", "pipefail", "-c"]
+USER root
+ADD requirements.txt .
+RUN apt-get update -y && \
+    apt-get autoremove -y && \
+    apt-get install -y --no-install-recommends \
+        python3-pip \
+        python3-pandas \
+        && curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
+        && python3 get-pip.py \
+        && pip3 install -r requirements.txt \
+        && apt-get autopurge -yqq \
+        && rm -rf /var/lib/apt/lists/* /tmp/*
+
+# RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+# RUN python3 get-pip.py
+# RUN pip3 install -r requirements.txt
+# RUN mkdir /config && chown -R odoo /config
+# COPY ./config/odoo.conf /config/odoo.conf
+# RUN mkdir /addons && chown -R odoo /addons
+# COPY --chown=odoo:root ./addons/ /
+# ENV ODOO_RC /etc/odoo/odoo.conf
+RUN mkdir /opt/odoo \
+    && mkdir /opt/odoo/backups \
+    && chmod -R 775 /opt/odoo && chown -R odoo:odoo /opt/odoo
+
+VOLUME ["/opt/odoo/backups"]
+
+COPY ./entrypoint.sh /
+RUN chmod +x entrypoint.sh
+COPY wait-for-psql.py /usr/local/bin/wait-for-psql.py
+RUN chmod +x /usr/local/bin/wait-for-psql.py
+ENTRYPOINT ["./entrypoint.sh"]
+USER odoo
+CMD ["odoo"]
+
+# docker build --force-rm -t banticsoft/bantic_odoo:13.0.2 .
