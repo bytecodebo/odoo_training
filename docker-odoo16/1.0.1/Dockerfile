@@ -5,9 +5,10 @@ USER root
 RUN apt-get update && apt-get install -y zip
 
 COPY ./resources/requirements-advance.txt /tmp/.
+COPY ./resources/requirements.txt /tmp/.
 
 RUN pip install --upgrade pip \
-    && pip install -r /tmp/requirements-advance.txt
+    && pip install -r /tmp/requirements.txt
 
 RUN mkdir -p /opt/odoo/backups \
     && chown -R odoo /opt/odoo/backups
