@@ -2,12 +2,12 @@ FROM odoo:16.0
 
 USER root
 
-COPY ./resources/requirements-advance.txt .
+COPY ./resources/requirements-advance.txt /tmp/.
 
 
 # Set default user when running the container
-USER odoo
+#USER odoo
 
-ENTRYPOINT ["/entrypoint.sh"]
+#ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["odoo"]
+#CMD ["odoo"]
