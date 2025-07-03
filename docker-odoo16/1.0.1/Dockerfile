@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
 COPY ./resources/requirements-advance.txt /opt/odoo/.
 
 RUN pip install --upgrade pip \
-    && pip install -r /odoo/requirements-advance.txt
+    && pip install -r /opt/odoo/requirements-advance.txt
 
 RUN mkdir -p /opt/odoo/backups \
     && chown -R odoo /opt/odoo/backups
@@ -23,5 +23,5 @@ USER odoo
 
 #CMD ["odoo"]
 
+# docker buildx --platform=linux/amd64 --force-rm -t robertsvx38/odoo-training:16.0.1 .
 # docker build --force-rm -t robertsvx38/odoo-training:16.0.1 .
-
