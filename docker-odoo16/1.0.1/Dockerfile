@@ -1,15 +1,22 @@
 FROM odoo:16.0
 
+SHELL ["/bin/bash", "-xo", "pipefail", "-c"]
 USER root
 
-RUN apt-get update && apt-get install -y zip
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    nano \
+    zip
 
 COPY ./resources/requirements-advance.txt /tmp/.
 COPY ./resources/requirements.txt /tmp/.
 
 RUN pip install -r /tmp/requirements.txt
 
-RUN mkdir -p /opt/odoo/backups \
+COPY ./templates/odoo.conf.tmpl /etc/odoo/odoo.conf
+
+RUN chown odoo /etc/odoo/odoo.conf \
+    && mkdir -p /opt/odoo/backups \
     && chown -R odoo /opt/odoo/backups
 
 VOLUME ["/opt/odoo/backups"]
