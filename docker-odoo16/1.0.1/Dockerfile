@@ -11,7 +11,7 @@ RUN apt-get update && \
 COPY ./resources/requirements-advance.txt /tmp/.
 COPY ./resources/requirements.txt /tmp/.
 
-RUN pip install -r /tmp/requirements.txt
+RUN pip3 install -r /tmp/requirements.txt
 
 COPY ./templates/odoo.conf.tmpl /etc/odoo/odoo.conf
 
