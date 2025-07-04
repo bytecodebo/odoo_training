@@ -33,6 +33,25 @@ services:
     networks:
       - odoo-trn-net
 
+  pgbouncer:
+    container_name: ${PGB_HOST}
+    image: edoburu/pgbouncer:latest
+    depends_on:
+      - db
+    ports:
+      - "${PGB_PORT}:5432"
+    volumes:
+      - ./pgbouncer:/etc/pgbouncer
+#    environment:
+#      - "DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@db:${DB_PORT}/${POSTGRES_DB}"
+#      - DB_HOST=db
+#      - DB_USER=odoo
+#      - DB_PASSWORD=odoo
+#      - POOL_MODE=transaction
+#      - MAX_CLIENT_CONN=500
+    networks:
+      - odoo-trn-net
+
 volumes:
   odoo-db-data:
   odoo-web-data:
