@@ -1,17 +1,32 @@
 FROM odoo:16.0
+
 SHELL ["/bin/bash", "-xo", "pipefail", "-c"]
 USER root
 
-COPY ./resources/requirements-advance.txt /tmp/.
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    nano \
+    zip
 
-RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r /tmp/requirements-advance.txt
-# RUN pip install --no-cache-dir -r /opt/odoo/extra_requirements.txt
+COPY ./resources/requirements-advance.txt /tmp/.
+COPY ./resources/requirements.txt /tmp/.
+
+RUN pip3 install -r /tmp/requirements.txt
+
+COPY ./templates/odoo.conf.tmpl /etc/odoo/odoo.conf
+
+RUN chown odoo /etc/odoo/odoo.conf \
+    && mkdir -p /opt/odoo/backups \
+    && chown -R odoo /opt/odoo/backups
+
+VOLUME ["/opt/odoo/backups"]
 # Set default user when running the container
+
 USER odoo
 
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["odoo"]
+#ENTRYPOINT ["/entrypoint.sh"]
 
-# docker build --platform=linux/amd64 -t {user|account}/{image-name}:{tag} .
-# docker build --platform=linux/amd64 -t robertsvx38/odoo-training:16.1.0.1
+#CMD ["odoo"]
+
+# docker buildx --platform=linux/amd64 --force-rm -t robertsvx38/odoo-training:16.0.1 .
+# docker build --force-rm -t robertsvx38/odoo-training:16.0.1 .
