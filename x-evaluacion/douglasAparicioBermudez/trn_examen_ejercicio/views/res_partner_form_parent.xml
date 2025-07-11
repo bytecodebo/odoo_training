@@ -1,0 +1,3 @@
+<odoo>
+    <record id="view_partner_form_parent" model="ir.ui.view">
+        <field name="name">res.partner.form.parent</field

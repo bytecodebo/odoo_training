@@ -1,0 +1,27 @@
+<odoo>
+    <record id="view_partner_tree_grouped" model="ir.ui.view">
+        <field name="name">res.partner.tree.grouped</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Contactos agrupados por cliente padre">
+                <field name="parent_id" group_operator="count"/>
+                <field name="nombre"/>
+                <field name="correo_electronico"/>
+                <field name="telefono"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_partner_tree_grouped" model="ir.actions.act_window">
+        <field name="name">Contactos agrupados</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_partner_tree_grouped"/>
+        <field name="domain">[('parent_id','!=',False)]</field>
+    </record>
+
+    <menuitem id="menu_partner_tree_grouped"
+              name="Contactos agrupados por cliente padre"
+              parent="base.menu_contacts"
+              action="action_partner_tree_grouped"/>
+</odoo>
