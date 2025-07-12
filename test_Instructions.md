@@ -4,7 +4,7 @@
    - b) Puedo heredar campos de un modelo persistente para construir una clase abstracta.
    - c) No puedo realizar ninguna de las anteriores
 
-    Resp.- la respuesta correcta es el inciso A, si se puede construir un modelo persistente desde una clase abstracta, pero la clase abstracta no puede generar un modelo persistente(que si se genera una tabla en la base de datos)
+    Resp.- la respuesta correcta es el inciso A, si se puede construir un modelo persistente desde una clase abstracta, pero la clase abstracta no puede generar un modelo persistente(que si genera una tabla en la base de datos)
 
 
 
