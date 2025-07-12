@@ -1,3 +1,21 @@
 <odoo>
-    <record id="view_partner_form_parent" model="ir.ui.view">
-        <field name="name">res.partner.form.parent</field
+    <record id="view_partner_form_inherit_childs" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.childs</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <sheet position="inside">
+                <group string="Contactos Hijos" colspan="2">
+                    <field name="child_ids">
+                        <tree editable="bottom">
+                            <field name="nombre"/>
+                            <field name="correo_electronico"/>
+                            <field name="telefono"/>
+                            <field name="function" string="Cargo"/>
+                        </tree>
+                    </field>
+                </group>
+            </sheet>
+        </field>
+    </record>
+</odoo>

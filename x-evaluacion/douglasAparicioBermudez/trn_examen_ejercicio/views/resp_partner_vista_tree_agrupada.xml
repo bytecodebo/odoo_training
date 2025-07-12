@@ -9,6 +9,9 @@
                 <field name="correo_electronico"/>
                 <field name="telefono"/>
             </tree>
+            <field name="parent_id" position="after">
+                <field name="is_parent_customer"/>
+            </field>
         </field>
     </record>
 
