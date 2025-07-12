@@ -18,7 +18,7 @@ class ResPartner(models.Model):
     def create(self, vals):
         if vals.get('parent_id'):
             parent = self.env['res.partner'].browse(vals['parent_id'])
-            # Buscar el siguientee máximo child_code entre los hijos que ya existen
+            # Buscar el siguientee máximo consecutivo child_code entre los hijos que ya existen
             max_code = max(parent.child_ids.mapped('child_code') or [0])
             vals['child_code'] = max_code + 1
         return super(ResPartner, self).create(vals)
