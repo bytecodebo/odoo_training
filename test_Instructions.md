@@ -1,3 +1,14 @@
+
+1. Seleccione una de las siguientes afirmaciones y explique la razon de su respuesta.
+   - a) Puedo heredar campos de una clase abstracta para construir un modelo persistente
+   - b) Puedo heredar campos de un modelo persistente para construir una clase abstracta.
+   - c) No puedo realizar ninguna de las anteriores
+
+    Resp.- la respuesta correcta es el inciso A, si se puede construir un modelo persistente desde una clase abstracta, pero la clase abstracta no puede generar un modelo persistente(que si se genera una tabla en la base de datos)
+
+
+
+
 # Examen práctico de Odoo  
 **Nombre:** Juan Carlos Mamani Rojas  
 **Módulo:** `trn_exam_partner_contact`  
